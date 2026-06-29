@@ -1,0 +1,25 @@
+# Render Blueprint for the Trinovtech backend API (Express + MongoDB).
+# Deploy: render.com → New → Blueprint → connect this repo. Render reads this
+# file, creates the service, and auto-deploys on every push to main.
+#
+# You must set two values in the Render dashboard after it's created
+# (they're marked `sync: false` so they're never stored in git):
+#   MONGO_URI      your MongoDB Atlas connection string
+#   CLIENT_ORIGIN  https://your-domain.com,https://www.your-domain.com
+services:
+  - type: web
+    name: trinovtech-api
+    runtime: node
+    plan: free
+    rootDir: server
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: MONGO_URI
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false

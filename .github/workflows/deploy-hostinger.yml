@@ -1,15 +1,15 @@
 name: Deploy frontend to Hostinger
 
-# Manual trigger by default (Actions tab → "Run workflow") so it never fails
-# before you've configured the secrets below. To auto-deploy on every push to
-# main, uncomment the `push:` block.
+# Runs on every push to main AND can be triggered manually.
+# The actual FTP upload only runs once you've added the FTP_* secrets, so this
+# never fails red before it's configured — it just builds and skips the upload.
 on:
   workflow_dispatch:
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
 
 # Required repository secrets (Settings → Secrets and variables → Actions):
-#   FTP_SERVER    e.g. ftp.your-domain.com   (from hPanel → Files → FTP Accounts)
+#   FTP_SERVER    e.g. ftp.your-domain.com   (hPanel → Files → FTP Accounts)
 #   FTP_USERNAME  your FTP username
 #   FTP_PASSWORD  your FTP password
 # Optional repository variable:
@@ -30,7 +30,21 @@ jobs:
         run: npm run build
         env:
           VITE_API_URL: ${{ vars.VITE_API_URL }}
+
+      - name: Check FTP secrets
+        id: ftp
+        env:
+          FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        run: |
+          if [ -n "$FTP_SERVER" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::FTP secrets not set — built the site but skipped the upload. Add FTP_SERVER/FTP_USERNAME/FTP_PASSWORD to enable deploys."
+          fi
+
       - name: Deploy via FTP
+        if: steps.ftp.outputs.ready == 'true'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -38,5 +52,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: public_html/
-          # keep files that aren't part of the build (e.g. manually added ones)
           dangerous-clean-slate: false
