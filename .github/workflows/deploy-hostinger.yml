@@ -1,0 +1,42 @@
+name: Deploy frontend to Hostinger
+
+# Manual trigger by default (Actions tab → "Run workflow") so it never fails
+# before you've configured the secrets below. To auto-deploy on every push to
+# main, uncomment the `push:` block.
+on:
+  workflow_dispatch:
+  # push:
+  #   branches: [main]
+
+# Required repository secrets (Settings → Secrets and variables → Actions):
+#   FTP_SERVER    e.g. ftp.your-domain.com   (from hPanel → Files → FTP Accounts)
+#   FTP_USERNAME  your FTP username
+#   FTP_PASSWORD  your FTP password
+# Optional repository variable:
+#   VITE_API_URL  https://your-api.onrender.com/api   (baked into the build)
+
+jobs:
+  deploy:
+    name: Build & upload to public_html
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Build
+        run: npm run build
+        env:
+          VITE_API_URL: ${{ vars.VITE_API_URL }}
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: public_html/
+          # keep files that aren't part of the build (e.g. manually added ones)
+          dangerous-clean-slate: false

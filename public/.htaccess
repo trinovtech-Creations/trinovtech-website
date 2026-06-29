@@ -1,0 +1,31 @@
+# ===== Trinovtech SPA — Apache / LiteSpeed (Hostinger) config =====
+
+# --- Single Page App routing ---
+# Serve real files/folders as-is; send everything else to index.html so that
+# React Router routes like /services/web-app work on direct load & refresh.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+  RewriteRule ^index\.html$ - [L]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule . /index.html [L]
+</IfModule>
+
+# --- Compression ---
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript \
+    application/javascript application/json image/svg+xml application/xml
+</IfModule>
+
+# --- Caching ---
+# Hashed JS/CSS/images can be cached forever; HTML must always revalidate so
+# new deploys are picked up immediately.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|png|jpg|jpeg|gif|svg|webp|woff2?)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>

@@ -1,0 +1,21 @@
+node_modules
+**/node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+# --- secrets / env (never commit) ---
+.env
+.env.local
+.env.production
+.env.*.local
+server/.env
+# (the *.example files ARE committed as templates)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.vscode/*
+!.vscode/extensions.json
+
+# local Claude Code settings
+.claude/settings.local.json

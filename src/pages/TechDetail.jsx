@@ -1,0 +1,158 @@
+import { useParams, Link } from 'react-router-dom'
+import { technologies, getTechnology } from '../data/technologies.js'
+import { getService } from '../data/services.js'
+import Icon from '../components/Icon.jsx'
+import Reveal from '../components/Reveal.jsx'
+import CountUp from '../components/CountUp.jsx'
+
+export default function TechDetail() {
+  const { slug } = useParams()
+  const tech = getTechnology(slug)
+
+  if (!tech) {
+    return (
+      <section className="section container" style={{ textAlign: 'center', minHeight: '60vh' }}>
+        <h1 className="gradient-text" style={{ marginBottom: 16 }}>Technology not found</h1>
+        <p style={{ color: 'var(--text-muted)', marginBottom: 24 }}>
+          We couldn’t find that technology — it may have moved.
+        </p>
+        <Link to="/" className="btn btn--primary">Back home</Link>
+      </section>
+    )
+  }
+
+  const related = (tech.related || []).map(getService).filter(Boolean)
+  const others = technologies.filter((t) => t.slug !== tech.slug)
+
+  return (
+    <article className="td">
+      {/* ===== Terminal hero ===== */}
+      <header className="td-hero">
+        <div className="container">
+          <div className="td-window">
+            <div className="td-window__bar">
+              <span className="td-dot td-dot--r" />
+              <span className="td-dot td-dot--y" />
+              <span className="td-dot td-dot--g" />
+              <span className="td-window__path">~/technologies/{tech.slug}</span>
+            </div>
+
+            <div className="td-window__body">
+              <nav className="td-breadcrumb" aria-label="Breadcrumb">
+                <Link to="/">home</Link><span>/</span>
+                <Link to="/#tech">technologies</Link><span>/</span>
+                <span className="td-breadcrumb__current">{tech.slug}</span>
+              </nav>
+
+              <div className="td-hero__head">
+                <span className="td-mono-tile">{tech.mono}</span>
+                <div className="td-hero__meta">
+                  <span className="td-tag">{tech.category}</span>
+                  <h1 className="td-title">{tech.name}</h1>
+                </div>
+              </div>
+
+              <p className="td-prompt"><span className="td-caret">$</span> {tech.tagline}</p>
+
+              <div className="td-hero__actions">
+                <Link to="/#contact" className="btn btn--primary btn--lg">Build with {tech.name}</Link>
+                <Link to="/#tech" className="td-textlink">← all technologies</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* ===== Overview + spec card ===== */}
+      <section className="section">
+        <div className="container td-grid">
+          <div className="td-grid__main">
+            <Reveal>
+              <p className="td-comment">// overview</p>
+              <p className="td-lead">{tech.description}</p>
+            </Reveal>
+
+            <Reveal delay={80}>
+              <p className="td-comment" style={{ marginTop: 36 }}>// what we build with it</p>
+              <ul className="td-checklist">
+                {tech.highlights.map((h) => (
+                  <li key={h}><span className="td-check">▸</span>{h}</li>
+                ))}
+              </ul>
+            </Reveal>
+          </div>
+
+          <Reveal variant="left" className="td-aside">
+            <div className="td-spec">
+              <p className="td-spec__title">spec</p>
+              <dl className="td-spec__list">
+                <div><dt>name</dt><dd>{tech.name}</dd></div>
+                <div><dt>category</dt><dd>{tech.category}</dd></div>
+                <div><dt>monogram</dt><dd>{tech.mono}</dd></div>
+                <div><dt>used_in</dt><dd><CountUp value={`${related.length} service${related.length === 1 ? '' : 's'}`} /></dd></div>
+                <div><dt>status</dt><dd className="td-spec__ok">production-ready</dd></div>
+              </dl>
+              <Link to="/#contact" className="btn btn--primary btn--block td-spec__cta">Start a project</Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== Related services ===== */}
+      {related.length > 0 && (
+        <section className="section section--alt">
+          <div className="container">
+            <Reveal>
+              <p className="td-comment">// powers these services</p>
+              <h2 className="td-h2">Where we use {tech.name}</h2>
+            </Reveal>
+            <div className="td-services">
+              {related.map((sv, i) => (
+                <Reveal as={Link} key={sv.slug} to={`/services/${sv.slug}`} className="td-service" delay={i * 60}>
+                  <span className="td-service__icon"><Icon name={sv.icon} size={24} /></span>
+                  <span className="td-service__body">
+                    <span className="td-service__title">{sv.title}</span>
+                    <span className="td-service__short">{sv.short}</span>
+                  </span>
+                  <span className="td-service__arrow">→</span>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* ===== CTA ===== */}
+      <section className="section">
+        <div className="container">
+          <Reveal variant="zoom">
+            <div className="td-cta">
+              <p className="td-comment td-comment--light">// let’s ship something</p>
+              <h2 className="td-cta__title">Have a project that needs {tech.name}?</h2>
+              <p className="td-cta__text">Tell us what you’re building — we’ll bring the right stack and a clear plan.</p>
+              <Link to="/#contact" className="btn btn--lg td-cta__btn">Talk to our engineers</Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ===== Explore other technologies ===== */}
+      <section className="section section--alt">
+        <div className="container">
+          <Reveal>
+            <p className="td-comment">// explore the stack</p>
+            <h2 className="td-h2">Other technologies</h2>
+          </Reveal>
+          <div className="td-chips">
+            {others.map((t) => (
+              <Link key={t.slug} to={`/technologies/${t.slug}`} className="td-chip">
+                <span className="td-chip__mono">{t.mono}</span>
+                {t.name}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+    </article>
+  )
+}

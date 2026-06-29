@@ -1,0 +1,21 @@
+{
+  "name": "trinovtech-backend",
+  "version": "1.0.0",
+  "description": "Express + MongoDB API for the Trinovtech frontend (the M-E-N of MERN)",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node --watch server.js",
+    "start": "node server.js",
+    "test": "node test/api.test.mjs"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mongoose": "^8.7.0"
+  },
+  "devDependencies": {
+    "mongodb-memory-server": "^11.2.0"
+  }
+}
