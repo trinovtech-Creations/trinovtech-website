@@ -5,9 +5,9 @@ export const services = [
     icon: 'ai',
     title: 'Artificial Intelligence',
     short: 'Smart automation, ML models and AI-driven products that turn data into decisions.',
-    tagline: 'Turn your data into intelligent products that learn, predict and automate.',
+    tagline: 'Turn your data into practical AI features that predict, assist and automate.',
     description:
-      'We design and deploy AI/ML solutions — from predictive analytics and computer vision to natural language processing and generative AI assistants — engineered for real-world reliability and scale.',
+      'We design and deploy AI/ML solutions — from predictive analytics and computer vision to natural language processing and generative AI assistants — engineered for real product workflows.',
     features: [
       'Machine Learning & Predictive Analytics',
       'Computer Vision & Image Processing',
@@ -26,7 +26,7 @@ export const services = [
     icon: 'cloud',
     title: 'DevOps & Cloud',
     short: 'Managed cloud, CI/CD and infrastructure automation for resilient delivery.',
-    tagline: 'Ship faster and sleep better with automated, observable cloud infrastructure.',
+    tagline: 'Ship faster with automated, observable cloud infrastructure.',
     description:
       'We build cloud-native platforms with automated pipelines, containerization and observability so your teams ship faster with confidence on AWS, Azure or GCP.',
     features: [
@@ -36,7 +36,7 @@ export const services = [
       'Monitoring & Observability',
     ],
     outcomes: [
-      'Release multiple times a day with zero-downtime deploys',
+      'Release confidently with repeatable deployment pipelines',
       'Cut cloud spend with right-sized, automated infrastructure',
       'Catch issues early with full-stack monitoring and alerts',
     ],
@@ -131,7 +131,7 @@ export const services = [
     icon: 'mobile',
     title: 'Mobile App',
     short: 'Native and cross-platform mobile apps with great UX.',
-    tagline: 'Beautiful, fast mobile apps your users keep coming back to.',
+    tagline: 'Fast, usable mobile apps built around real customer journeys.',
     description:
       'We craft performant iOS, Android and cross-platform apps (React Native / Flutter) with clean UX, offline support and seamless backend integration.',
     features: [
@@ -142,7 +142,7 @@ export const services = [
     ],
     outcomes: [
       'Launch on iOS and Android from a single codebase',
-      'Keep users engaged with smooth, offline-capable UX',
+      'Support smooth, offline-capable user experiences',
       'Go live faster with handled App Store / Play submissions',
     ],
     tech: ['React Native', 'Flutter', 'Swift', 'Kotlin', 'Firebase', 'Expo'],
@@ -152,7 +152,7 @@ export const services = [
     icon: 'globe',
     title: 'Web App',
     short: 'Scalable web applications built on modern stacks like MERN.',
-    tagline: 'Scalable web platforms — from MVP to enterprise — on the modern stack.',
+    tagline: 'Scalable web platforms — from MVP to production — on the modern stack.',
     description:
       'Full-stack web applications using React, Node.js, Express and MongoDB — responsive, secure and built to scale from MVP to enterprise.',
     features: [

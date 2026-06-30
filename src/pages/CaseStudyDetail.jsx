@@ -13,9 +13,9 @@ export default function CaseStudyDetail() {
   if (!study) {
     return (
       <section className="section container" style={{ textAlign: 'center', minHeight: '60vh' }}>
-        <h1 className="gradient-text" style={{ marginBottom: 16 }}>Case study not found</h1>
+        <h1 className="gradient-text" style={{ marginBottom: 16 }}>Project example not found</h1>
         <p style={{ color: 'var(--text-muted)', marginBottom: 24 }}>
-          This case study doesn’t exist or may have moved.
+          This project example doesn’t exist or may have moved.
         </p>
         <Link to="/#work" className="btn btn--primary">View all work</Link>
       </section>
@@ -47,7 +47,7 @@ export default function CaseStudyDetail() {
         </div>
       </header>
 
-      {/* Results band */}
+      {/* Capabilities band */}
       <section className="cs-results">
         <div className="container cs-results__row">
           {study.results.map((r) => (
@@ -103,7 +103,7 @@ export default function CaseStudyDetail() {
           <Reveal variant="zoom">
             <div className="cs-cta">
               <h2>Have a similar challenge?</h2>
-              <p>Let’s talk about how we can engineer the same kind of outcome for your business.</p>
+              <p>Let’s talk about how Trinovtech can shape the right technical path for your business.</p>
               <div className="cs-cta__actions">
                 <Link to="/#contact" className="btn btn--primary btn--lg">Start a project</Link>
                 <Link to="/#work" className="btn btn--outline btn--lg">See more work</Link>
@@ -116,7 +116,7 @@ export default function CaseStudyDetail() {
       {/* Other case studies */}
       <section className="section section--alt">
         <div className="container">
-          <Reveal><h2 className="cs-h2" style={{ marginBottom: 24 }}>More case studies</h2></Reveal>
+          <Reveal><h2 className="cs-h2" style={{ marginBottom: 24 }}>More project examples</h2></Reveal>
           <div className="grid grid--2">
             {others.map((c) => (
               <Link key={c.slug} to={`/work/${c.slug}`} className="card work-card">
@@ -126,7 +126,7 @@ export default function CaseStudyDetail() {
                 </div>
                 <h3 className="work-card__title">{c.title}</h3>
                 <p className="work-card__text">{c.summary}</p>
-                <span className="card__link work-card__more">Read case study →</span>
+                <span className="card__link work-card__more">Read example →</span>
               </Link>
             ))}
           </div>

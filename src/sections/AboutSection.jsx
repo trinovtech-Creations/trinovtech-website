@@ -6,10 +6,10 @@ import Icon from '../components/Icon.jsx'
 import { pillars } from '../data/about.js'
 
 const timeline = [
-  { year: 'Concept', text: 'We start by understanding your goals and identifying growth opportunities.' },
-  { year: 'Design', text: 'We architect scalable, reliable solutions tailored to your needs.' },
-  { year: 'Build', text: 'Senior engineers deliver with quality assurance built in at every step.' },
-  { year: 'Production', text: 'From concept to production — with managed support that keeps you running.' },
+  { year: 'Discover', text: 'We understand the business goal, users, constraints, and the technical path to launch.' },
+  { year: 'Design', text: 'We shape the architecture, user experience, hardware plan, or cloud foundation around your real requirements.' },
+  { year: 'Build', text: 'Our team develops in focused iterations with testing, reviews, and clear progress updates.' },
+  { year: 'Launch', text: 'We help deploy, hand over, monitor, and improve the product after it reaches users.' },
 ]
 
 // `limit`/`more` power the Home teaser; `showTimeline` keeps the process
@@ -23,8 +23,8 @@ export default function AboutSection({ limit, more, showTimeline = true }) {
           <SectionHeader
             center
             eyebrow="About Us"
-            title="Building reliable technology for modern businesses"
-            subtitle="On-demand expertise to reduce costs and speed up development — from concept to production."
+            title="Engineering support for ambitious product teams"
+            subtitle="Trinovtech brings together software, embedded, AI, and cloud expertise so you can move from idea to launch with one accountable partner."
           />
         </Reveal>
         <div className="grid grid--3">
@@ -51,7 +51,7 @@ export default function AboutSection({ limit, more, showTimeline = true }) {
         {showTimeline && (
           <>
             <Reveal className="about-process-head">
-              <h3 className="about-process-title">From Concept to Production</h3>
+              <h3 className="about-process-title">How We Take Products Forward</h3>
             </Reveal>
             <div className="timeline">
               {timeline.map((t, i) => (

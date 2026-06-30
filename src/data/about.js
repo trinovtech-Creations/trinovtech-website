@@ -7,9 +7,9 @@ export const pillars = [
     card: 'Mission',
     label: 'Our Mission',
     statement:
-      'To help businesses identify opportunities for top growth and implement the right strategies through reliable engineering — from concept to production.',
+      'To help businesses design, build, and launch reliable technology products — from concept to production.',
     overview:
-      'We exist to make great technology accessible. By giving businesses on-demand access to senior engineering talent across the full stack — silicon to cloud — we help them move faster, spend smarter and build products that last.',
+      'We exist to make dependable engineering accessible. By giving businesses practical product guidance and hands-on technical execution across the full stack — hardware, firmware, cloud, web, mobile, and AI — we help them move faster, spend smarter, and build products that last.',
     points: [
       { title: 'Reduce cost & risk', text: 'On-demand senior expertise means you get the right skills exactly when you need them, without the overhead of building a large in-house team.' },
       { title: 'Ship faster', text: 'Lean, focused delivery in tight iterations gets working products into the market sooner.' },
@@ -25,7 +25,7 @@ export const pillars = [
     statement:
       'To be the trusted technology partner for companies building the next generation of digital and embedded products.',
     overview:
-      'We see a future where every ambitious business — regardless of size — can build world-class digital and embedded products. Our vision is to be the dependable partner that makes that possible, combining deep engineering with genuine care for our clients’ success.',
+      'We see a future where ambitious businesses can build world-class digital and embedded products without carrying the weight of every specialist role in-house. Our vision is to be the dependable partner that makes that possible, combining careful engineering with genuine care for our clients’ success.',
     points: [
       { title: 'A partner, not a vendor', text: 'We invest in long-term relationships and treat your goals as our own.' },
       { title: 'Technology that lasts', text: 'We build maintainable, scalable systems designed to grow with you for years, not months.' },

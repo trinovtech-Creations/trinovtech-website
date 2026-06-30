@@ -124,7 +124,9 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
 
 /* Dropdown */
 .nav__dropdown { position: relative; }
-.nav__dropbtn { cursor: pointer; }
+.nav__dropbtn { cursor: pointer; background: none; border: 0; font-family: inherit; }
+.caret { transition: transform 0.2s ease; }
+.nav__dropbtn[aria-expanded="true"] .caret { transform: rotate(180deg); }
 .dropdown {
   position: absolute; top: calc(100% + 8px); left: 0; min-width: 240px;
   background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm);
@@ -1292,7 +1294,7 @@ h1, h2, h3, h4 { line-height: 1.2; font-weight: 700; letter-spacing: -0.02em; }
 .pillar-h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); color: var(--navy); margin-top: 4px; }
 .pillar-point { position: relative; padding-top: 30px; height: 100%; }
 .pillar-point__num { position: absolute; top: 20px; right: 24px; font-size: 1.6rem; font-weight: 800; color: var(--border-strong); }
-.pillar-point__title { font-size: 1.2rem; margin-bottom: 10px; color: var(--navy); }
+.pillar-point__title { font-size: 1.2rem; margin-bottom: 10px; color: var(--navy); padding-right: 44px; }
 .pillar-point__text { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; }
 
 .pillar-cta { text-align: center; max-width: 640px; margin: 0 auto; padding: 48px 24px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
