@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom'
 import SectionHeader from '../components/SectionHeader.jsx'
 import ServiceCard from '../components/ServiceCard.jsx'
 import Reveal from '../components/Reveal.jsx'
 import Tilt from '../components/Tilt.jsx'
 import { services } from '../data/services.js'
 
-export default function ServicesSection() {
+// `limit` trims the grid for the Home teaser; `more` renders a "View all" link.
+export default function ServicesSection({ limit, more }) {
+  const items = limit ? services.slice(0, limit) : services
   return (
     <section className="section section-anchor" id="services">
       <div className="container">
@@ -16,12 +19,17 @@ export default function ServicesSection() {
           />
         </Reveal>
         <div className="grid grid--4">
-          {services.map((s, i) => (
+          {items.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 4) * 90}>
               <Tilt><ServiceCard service={s} /></Tilt>
             </Reveal>
           ))}
         </div>
+        {more && (
+          <Reveal className="section-more">
+            <Link to={more.to} className="btn btn--ghost btn--lg">{more.label}</Link>
+          </Reveal>
+        )}
       </div>
     </section>
   )

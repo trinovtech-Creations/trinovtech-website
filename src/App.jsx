@@ -4,7 +4,12 @@ import ScrollProgress from './components/ScrollProgress.jsx'
 import PageLoader from './components/PageLoader.jsx'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
-import OnePage from './pages/OnePage.jsx'
+import FloatingActions from './components/FloatingActions.jsx'
+import Home from './pages/Home.jsx'
+import ServicesPage from './pages/ServicesPage.jsx'
+import SolutionsPage from './pages/SolutionsPage.jsx'
+import WorkPage from './pages/WorkPage.jsx'
+import AboutPage from './pages/AboutPage.jsx'
 import ServiceDetail from './pages/ServiceDetail.jsx'
 import SolutionDetail from './pages/SolutionDetail.jsx'
 import TechDetail from './pages/TechDetail.jsx'
@@ -53,7 +58,11 @@ export default function App() {
       <Navbar />
       <main>
         <Routes>
-          <Route path="/" element={<OnePage />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/services" element={<ServicesPage />} />
+          <Route path="/solutions" element={<SolutionsPage />} />
+          <Route path="/work" element={<WorkPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/solutions/:slug" element={<SolutionDetail />} />
           <Route path="/technologies/:slug" element={<TechDetail />} />
@@ -62,10 +71,11 @@ export default function App() {
           <Route path="/about/:slug" element={<AboutPillarDetail />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms" element={<TermsConditions />} />
-          <Route path="*" element={<OnePage />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </main>
       <Footer />
+      <FloatingActions />
     </div>
   )
 }

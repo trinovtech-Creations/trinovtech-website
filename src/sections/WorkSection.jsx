@@ -5,7 +5,9 @@ import Tilt from '../components/Tilt.jsx'
 import Icon from '../components/Icon.jsx'
 import { caseStudies } from '../data/caseStudies.js'
 
-export default function WorkSection() {
+// `limit` trims the grid for the Home teaser; `more` renders a "View all" link.
+export default function WorkSection({ limit, more }) {
+  const items = limit ? caseStudies.slice(0, limit) : caseStudies
   return (
     <section className="section section--alt section-anchor" id="work">
       <div className="container">
@@ -18,7 +20,7 @@ export default function WorkSection() {
           />
         </Reveal>
         <div className="grid grid--2">
-          {caseStudies.map((c, i) => (
+          {items.map((c, i) => (
             <Reveal key={c.slug} delay={(i % 2) * 100}>
               <Tilt>
               <Link to={`/work/${c.slug}`} className="card work-card">
@@ -42,6 +44,11 @@ export default function WorkSection() {
             </Reveal>
           ))}
         </div>
+        {more && (
+          <Reveal className="section-more">
+            <Link to={more.to} className="btn btn--ghost btn--lg">{more.label}</Link>
+          </Reveal>
+        )}
       </div>
     </section>
   )

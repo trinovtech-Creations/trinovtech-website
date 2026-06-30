@@ -1,57 +1,42 @@
 import { useState, useEffect } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import Logo from './Logo.jsx'
 
 const links = [
-  { id: 'home', label: 'Home' },
-  { id: 'services', label: 'Services' },
-  { id: 'solutions', label: 'Solutions' },
-  { id: 'work', label: 'Work' },
-  { id: 'about', label: 'About' },
+  { id: 'home', label: 'Home', to: '/' },
+  { id: 'services', label: 'Services', to: '/services' },
+  { id: 'solutions', label: 'Solutions', to: '/solutions' },
+  { id: 'work', label: 'Work', to: '/work' },
+  { id: 'about', label: 'About', to: '/about' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [active, setActive] = useState('home')
   const navigate = useNavigate()
   const location = useLocation()
+  const path = location.pathname
 
+  // Highlight the nav item for the current route. `/services/:slug` etc. keep
+  // their parent ("Services") highlighted; Home only matches the exact root.
+  const isActive = (to) => (to === '/' ? path === '/' : path.startsWith(to))
+
+  // Add a solid background once the page is scrolled past the hero.
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', onScroll)
+    window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // Scrollspy: highlight the nav link for the section currently in view.
-  useEffect(() => {
-    const ids = [...links.map((l) => l.id), 'contact']
-    const sections = ids.map((id) => document.getElementById(id)).filter(Boolean)
-    if (!sections.length || typeof IntersectionObserver === 'undefined') return
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) setActive(e.target.id)
-        })
-      },
-      { rootMargin: '-45% 0px -50% 0px' }
-    )
-    sections.forEach((s) => obs.observe(s))
-    return () => obs.disconnect()
-  }, [])
-
-  // Navigate to a home-page section from any route. On the home page this just
-  // updates the hash (App's ScrollManager handles the smooth scroll); from a
-  // detail page it routes home first, then scrolls.
-  const goSection = (e, id) => {
+  // "Contact Us" jumps to the contact block, which lives on every main page.
+  // On a page without one (e.g. a detail page), fall back to Home's contact.
+  const goContact = (e) => {
     e.preventDefault()
     setOpen(false)
-    if (location.pathname === '/' && location.hash === `#${id}`) {
-      document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-    } else {
-      navigate(`/#${id}`)
-    }
+    const el = document.getElementById('contact')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    else navigate('/#contact')
   }
 
   // Lock body scroll and close on Escape while the mobile drawer is open.
@@ -89,17 +74,17 @@ export default function Navbar() {
 
         <nav className={`nav ${open ? 'nav--open' : ''}`} aria-label="Primary">
           {links.map((l, i) => (
-            <a
+            <Link
               key={l.id}
-              href={`/#${l.id}`}
-              className={`nav__link ${active === l.id ? 'active' : ''}`}
+              to={l.to}
+              className={`nav__link ${isActive(l.to) ? 'active' : ''}`}
               style={{ '--i': i }}
-              onClick={(e) => goSection(e, l.id)}
+              onClick={() => setOpen(false)}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
-          <a href="/#contact" className="btn btn--primary nav__cta" style={{ '--i': links.length }} onClick={(e) => goSection(e, 'contact')}>Contact Us</a>
+          <a href="/#contact" className="btn btn--primary nav__cta" style={{ '--i': links.length }} onClick={goContact}>Contact Us</a>
         </nav>
       </div>
     </header>

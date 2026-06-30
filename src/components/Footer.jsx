@@ -1,4 +1,4 @@
-import { Link, useNavigate, useLocation } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { services } from '../data/services.js'
 import { solutions } from '../data/solutions.js'
 import Logo from './Logo.jsx'
@@ -14,24 +14,15 @@ const socials = [
 
 export default function Footer() {
   const navigate = useNavigate()
-  const location = useLocation()
 
-  // Route-aware in-page section link (works from detail pages too).
-  const SectionLink = ({ id, children }) => (
-    <a
-      href={`/#${id}`}
-      onClick={(e) => {
-        e.preventDefault()
-        if (location.pathname === '/' && location.hash === `#${id}`) {
-          document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
-        } else {
-          navigate(`/#${id}`)
-        }
-      }}
-    >
-      {children}
-    </a>
-  )
+  // Contact lives at the bottom of every main page — scroll to it, or fall
+  // back to Home's contact block from a page that doesn't have one.
+  const goContact = (e) => {
+    e.preventDefault()
+    const el = document.getElementById('contact')
+    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    else navigate('/#contact')
+  }
 
   return (
     <footer className="footer">
@@ -53,13 +44,13 @@ export default function Footer() {
 
         <div className="footer__col">
           <h4>Quick Links</h4>
-          <SectionLink id="home">Home</SectionLink>
-          <SectionLink id="services">Services</SectionLink>
-          <SectionLink id="solutions">Solutions</SectionLink>
-          <SectionLink id="industries">Industries</SectionLink>
-          <SectionLink id="work">Our Work</SectionLink>
-          <SectionLink id="about">About Us</SectionLink>
-          <SectionLink id="contact">Contact</SectionLink>
+          <Link to="/">Home</Link>
+          <Link to="/services">Services</Link>
+          <Link to="/solutions">Solutions</Link>
+          <Link to="/solutions#industries">Industries</Link>
+          <Link to="/work">Our Work</Link>
+          <Link to="/about">About Us</Link>
+          <a href="/#contact" onClick={goContact}>Contact</a>
         </div>
 
         <div className="footer__col">
