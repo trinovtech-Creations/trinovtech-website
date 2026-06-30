@@ -1,4 +1,5 @@
-import { Link } from 'react-router-dom'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import CountUp from '../components/CountUp.jsx'
 import Icon from '../components/Icon.jsx'
 import Aurora from '../components/Aurora.jsx'
@@ -20,6 +21,25 @@ const stats = [
 ]
 
 export default function Hero() {
+  const navigate = useNavigate()
+  const [launching, setLaunching] = useState(false)
+
+  // Clicking the orbit logo plays a glitch + zoom-through transition, then
+  // navigates to Services. Honours reduced-motion by navigating instantly.
+  const launchToServices = () => {
+    if (launching) return
+    const reduced =
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (reduced) {
+      navigate('/services')
+      return
+    }
+    setLaunching(true)
+    window.setTimeout(() => navigate('/services'), 780)
+  }
+
   return (
     <section className="hero section-anchor" id="home">
       <Aurora />
@@ -53,11 +73,20 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero__visual">
-          <div className="orbit">
+          <div className={`orbit ${launching ? 'orbit--launch' : ''}`}>
             <div className="orbit__ring orbit__ring--1" />
             <div className="orbit__ring orbit__ring--2" />
             <span className="orbit__logo-glow" />
-            <img className="orbit__logo" src="/logo-mark.png" alt="Trinovtech" />
+            <img
+              className="orbit__logo orbit__logo--clickable"
+              src="/logo-mark.png"
+              alt="Trinovtech — explore our services"
+              role="button"
+              tabIndex={0}
+              title="Explore our services"
+              onClick={launchToServices}
+              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && (e.preventDefault(), launchToServices())}
+            />
             <span className="orbit__chip orbit__chip--1"><Icon name="ai" size={16} /> AI</span>
             <span className="orbit__chip orbit__chip--2"><Icon name="cloud" size={16} /> Cloud</span>
             <span className="orbit__chip orbit__chip--3"><Icon name="iot" size={16} /> IoT</span>
@@ -69,6 +98,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
+      {launching && <div className="pixel-warp" aria-hidden="true" />}
     </section>
   )
 }
