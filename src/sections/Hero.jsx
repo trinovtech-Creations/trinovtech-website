@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import CountUp from '../components/CountUp.jsx'
 import Icon from '../components/Icon.jsx'
 import Aurora from '../components/Aurora.jsx'
@@ -30,7 +31,7 @@ export default function Hero() {
             On-demand expertise to reduce costs and speed up development.
           </p>
           <div className="hero__actions">
-            <a href="#services" className="btn btn--primary btn--lg btn--shine">Explore</a>
+            <Link to="/services" className="btn btn--primary btn--lg btn--shine">Explore</Link>
             <a href="#contact" className="btn btn--ghost btn--lg">Get Started</a>
           </div>
           <div className="hero__stats">

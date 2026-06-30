@@ -1,16 +1,14 @@
 import Hero from '../sections/Hero.jsx'
 import ServicesSection from '../sections/ServicesSection.jsx'
-import TechSection from '../sections/TechSection.jsx'
 import SolutionsSection from '../sections/SolutionsSection.jsx'
-import IndustriesSection from '../sections/IndustriesSection.jsx'
 import WorkSection from '../sections/WorkSection.jsx'
-import WhySection from '../sections/WhySection.jsx'
 import AboutSection from '../sections/AboutSection.jsx'
 import CTASection from '../sections/CTASection.jsx'
 import ContactSection from '../sections/ContactSection.jsx'
 import TechMarquee from '../components/TechMarquee.jsx'
 
-export default function OnePage() {
+// Overview homepage: hero + trimmed teasers that each link to their full page.
+export default function Home() {
   return (
     <>
       <Hero />
@@ -18,13 +16,10 @@ export default function OnePage() {
         <div className="container marquee-section__label">Technologies we work with — tap to explore</div>
         <TechMarquee />
       </section>
-      <ServicesSection />
-      <TechSection />
-      <SolutionsSection />
-      <IndustriesSection />
-      <WorkSection />
-      <WhySection />
-      <AboutSection />
+      <ServicesSection limit={4} more={{ to: '/services', label: 'View all services →' }} />
+      <SolutionsSection limit={3} more={{ to: '/solutions', label: 'View all solutions →' }} />
+      <WorkSection limit={2} more={{ to: '/work', label: 'View all work →' }} />
+      <AboutSection limit={3} showTimeline={false} more={{ to: '/about', label: 'More about us →' }} />
       <CTASection />
       <ContactSection />
     </>

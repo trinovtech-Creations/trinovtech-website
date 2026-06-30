@@ -12,7 +12,10 @@ const timeline = [
   { year: 'Production', text: 'From concept to production — with managed support that keeps you running.' },
 ]
 
-export default function AboutSection() {
+// `limit`/`more` power the Home teaser; `showTimeline` keeps the process
+// timeline on the full /about page only.
+export default function AboutSection({ limit, more, showTimeline = true }) {
+  const items = limit ? pillars.slice(0, limit) : pillars
   return (
     <section className="section section--alt section-anchor" id="about">
       <div className="container">
@@ -25,7 +28,7 @@ export default function AboutSection() {
           />
         </Reveal>
         <div className="grid grid--3">
-          {pillars.map((p, i) => (
+          {items.map((p, i) => (
             <Reveal key={p.slug} delay={i * 100}>
               <Tilt>
                 <Link to={`/about/${p.slug}`} className="card feature-card feature-card--link">
@@ -39,18 +42,28 @@ export default function AboutSection() {
           ))}
         </div>
 
-        <Reveal className="about-process-head">
-          <h3 className="about-process-title">From Concept to Production</h3>
-        </Reveal>
-        <div className="timeline">
-          {timeline.map((t, i) => (
-            <Reveal key={t.year} delay={i * 120} className="timeline__item">
-              <div className="timeline__dot">{i + 1}</div>
-              <h3>{t.year}</h3>
-              <p>{t.text}</p>
+        {more && (
+          <Reveal className="section-more">
+            <Link to={more.to} className="btn btn--ghost btn--lg">{more.label}</Link>
+          </Reveal>
+        )}
+
+        {showTimeline && (
+          <>
+            <Reveal className="about-process-head">
+              <h3 className="about-process-title">From Concept to Production</h3>
             </Reveal>
-          ))}
-        </div>
+            <div className="timeline">
+              {timeline.map((t, i) => (
+                <Reveal key={t.year} delay={i * 120} className="timeline__item">
+                  <div className="timeline__dot">{i + 1}</div>
+                  <h3>{t.year}</h3>
+                  <p>{t.text}</p>
+                </Reveal>
+              ))}
+            </div>
+          </>
+        )}
       </div>
     </section>
   )
