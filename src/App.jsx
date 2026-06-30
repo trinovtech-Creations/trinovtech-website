@@ -14,6 +14,7 @@ import WorkPage from './pages/WorkPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
 import WhyDetail from './pages/WhyDetail.jsx'
 import ServiceDetail from './pages/ServiceDetail.jsx'
+import FeatureDetail from './pages/FeatureDetail.jsx'
 import SolutionDetail from './pages/SolutionDetail.jsx'
 import TechDetail from './pages/TechDetail.jsx'
 import CaseStudyDetail from './pages/CaseStudyDetail.jsx'
@@ -81,6 +82,7 @@ export default function App() {
           <Route path="/why-choose-us/:slug" element={<WhyDetail />} />
           <Route path="/how-we-work/:slug" element={<ProcessDetail />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
+          <Route path="/services/:slug/:feature" element={<FeatureDetail />} />
           <Route path="/solutions/:slug" element={<SolutionDetail />} />
           <Route path="/technologies/:slug" element={<TechDetail />} />
           <Route path="/work/:slug" element={<CaseStudyDetail />} />

@@ -1001,6 +1001,188 @@ export const projects = [
     services: ['web-app', 'devops-cloud', 'apis-integrations'],
     tech: ['Metabase', 'PostgreSQL', 'Apache Airflow'],
   },
+
+  // ===== Solutions & Capabilities =====
+  {
+    slug: 'ai-solutions', icon: 'ai', category: 'Solutions & Capabilities',
+    title: 'Artificial Intelligence (AI) Solutions',
+    summary: 'AI chatbots, agents, document AI and recommendation engines.',
+    overview:
+      'End-to-end AI solutions that automate operations and surface insight — from conversational chatbots and autonomous agents to document understanding and recommendation engines, built for production.',
+    features: ['AI Chatbots', 'AI Agents', 'Document AI', 'Recommendation Engines'],
+    services: ['artificial-intelligence', 'ai-agents', 'machine-learning'],
+    tech: ['Python', 'LangChain', 'OpenAI API'],
+  },
+  {
+    slug: 'generative-ai-solutions', icon: 'sparkles', category: 'Solutions & Capabilities',
+    title: 'Generative AI Solutions',
+    summary: 'Enterprise copilots, knowledge assistants, AI search and content automation.',
+    overview:
+      'Generative AI grounded in your own data — enterprise copilots, knowledge assistants, semantic AI search and content automation, with guardrails and evaluation for safe production use.',
+    features: ['Enterprise Copilots', 'Knowledge Assistants', 'AI Search', 'Content Automation'],
+    services: ['generative-ai', 'nlp', 'ai-agents'],
+    tech: ['LangChain', 'LlamaIndex', 'OpenAI API'],
+  },
+  {
+    slug: 'iiot-solutions', icon: 'factory', category: 'Solutions & Capabilities',
+    title: 'Industrial IoT (IIoT) Solutions',
+    summary: 'Factory automation, machine monitoring and predictive maintenance.',
+    overview:
+      'Connected industrial systems that bring Industry 4.0 to the shop floor — factory automation, real-time machine monitoring and predictive maintenance from edge to cloud.',
+    features: ['Factory Automation', 'Machine Monitoring', 'Predictive Maintenance'],
+    services: ['internet-of-things', 'mcu-programming', 'artificial-intelligence'],
+    tech: ['MQTT', 'OPC UA', 'Grafana'],
+  },
+  {
+    slug: 'iot-product-development', icon: 'iot', category: 'Solutions & Capabilities',
+    title: 'IoT Product Development',
+    summary: 'Connected devices, sensor networks and smart controllers.',
+    overview:
+      'Full IoT product development — connected devices, low-power sensor networks and smart controllers — engineered from hardware and firmware through secure cloud connectivity.',
+    features: ['Connected Devices', 'Sensor Networks', 'Smart Controllers'],
+    services: ['internet-of-things', 'embedded-systems', 'pcb-designing'],
+    tech: ['ESP32', 'LoRaWAN', 'MQTT'],
+  },
+  {
+    slug: 'embedded-product-engineering', icon: 'chip', category: 'Solutions & Capabilities',
+    title: 'Embedded Product Engineering',
+    summary: 'Smart meters, telematics, industrial controllers and AI edge devices.',
+    overview:
+      'Complete embedded product engineering — smart meters, telematics units, industrial controllers and AI edge devices — designed from silicon to firmware for reliability at scale.',
+    features: ['Smart Meters', 'Telematics', 'Industrial Controllers', 'AI Edge Devices'],
+    services: ['embedded-systems', 'pcb-designing', 'hardware-development'],
+    tech: ['STM32', 'Embedded C', 'FreeRTOS'],
+  },
+  {
+    slug: 'pcb-hardware-development', icon: 'circuit', category: 'Solutions & Capabilities',
+    title: 'PCB Design & Hardware Development',
+    summary: 'Schematic design, PCB layout, prototype development and DFM.',
+    overview:
+      'Hardware development from schematic to manufacturable board — schematic design, multi-layer PCB layout, prototype bring-up and design-for-manufacture review.',
+    features: ['Schematic Design', 'PCB Layout', 'Prototype Development', 'DFM'],
+    services: ['pcb-designing', 'hardware-development', 'electronic-product-design'],
+    tech: ['Altium', 'KiCad', 'LTspice'],
+  },
+  {
+    slug: 'embedded-firmware-development', icon: 'code', category: 'Solutions & Capabilities',
+    title: 'Embedded Firmware Development',
+    summary: 'MCU programming, device drivers and communication protocols.',
+    overview:
+      'Lean, deterministic firmware — MCU programming, custom device drivers and communication-protocol stacks — that gets the most out of every microcontroller.',
+    features: ['MCU Programming', 'Device Drivers', 'Communication Protocols'],
+    services: ['mcu-programming', 'embedded-systems', 'rtos-development'],
+    tech: ['Embedded C', 'ARM Cortex-M', 'FreeRTOS'],
+  },
+  {
+    slug: 'embedded-linux-rtos', icon: 'terminal', category: 'Solutions & Capabilities',
+    title: 'Embedded Linux & RTOS Development',
+    summary: 'BSP development, Linux customization and RTOS-based products.',
+    overview:
+      'Embedded software for capable devices — board support packages, custom Linux distributions and RTOS-based products engineered for performance and reliability.',
+    features: ['BSP Development', 'Linux Customization', 'RTOS-Based Products'],
+    services: ['embedded-linux', 'rtos-development', 'embedded-systems'],
+    tech: ['Embedded Linux', 'Yocto Project', 'Zephyr RTOS'],
+  },
+  {
+    slug: 'cloud-application-development', icon: 'cloud', category: 'Solutions & Capabilities',
+    title: 'Cloud Application Development',
+    summary: 'Cloud-native applications, microservices and APIs.',
+    overview:
+      'Cloud-native applications built to scale — microservices, resilient architectures and well-designed APIs deployed on elastic, observable infrastructure.',
+    features: ['Cloud-Native Applications', 'Microservices', 'APIs'],
+    services: ['cloud-native', 'web-app', 'apis-integrations'],
+    tech: ['Kubernetes', 'Docker', 'Node.js'],
+  },
+  {
+    slug: 'cloud-migration-modernization-capability', icon: 'migrate', category: 'Solutions & Capabilities',
+    title: 'Cloud Migration & Modernization',
+    summary: 'Legacy application migration and cloud transformation.',
+    overview:
+      'Move and modernise legacy workloads with minimal risk — assessment, re-architecture and phased migration that cut cost and unlock cloud scalability.',
+    features: ['Legacy Application Migration', 'Cloud Transformation'],
+    services: ['cloud-migration', 'devops-cloud', 'infrastructure-automation'],
+    tech: ['AWS', 'Terraform', 'Docker'],
+  },
+  {
+    slug: 'devops-managed-cloud', icon: 'infinity', category: 'Solutions & Capabilities',
+    title: 'DevOps & Managed Cloud Services',
+    summary: 'CI/CD, Kubernetes, infrastructure automation and monitoring.',
+    overview:
+      'Automated, observable delivery and operations — CI/CD pipelines, Kubernetes platforms, infrastructure automation and 24×7 monitoring so teams ship reliably.',
+    features: ['CI/CD', 'Kubernetes', 'Infrastructure Automation', 'Monitoring'],
+    services: ['devops-cloud', 'kubernetes', 'managed-cloud'],
+    tech: ['GitHub Actions', 'Kubernetes', 'Terraform'],
+  },
+  {
+    slug: 'saas-platform-development', icon: 'layers', category: 'Solutions & Capabilities',
+    title: 'SaaS Platform Development',
+    summary: 'Multi-tenant SaaS, subscription platforms and customer portals.',
+    overview:
+      'Secure, scalable multi-tenant SaaS — subscription billing, role-based access and customer portals, architected to onboard customers and grow recurring revenue.',
+    features: ['Multi-Tenant SaaS', 'Subscription Platforms', 'Customer Portals'],
+    services: ['saas-platforms', 'web-app', 'apis-integrations'],
+    tech: ['React', 'Node.js', 'Supabase'],
+  },
+  {
+    slug: 'enterprise-software-development', icon: 'building', category: 'Solutions & Capabilities',
+    title: 'Enterprise Software Development',
+    summary: 'ERP, CRM, HRMS and procurement & asset management.',
+    overview:
+      'Enterprise-grade business software — ERP, CRM, HRMS and procurement or asset management — that replaces disconnected tools with one secure system of record.',
+    features: ['ERP', 'CRM', 'HRMS', 'Procurement & Asset Management'],
+    services: ['enterprise-applications', 'web-app', 'workflow-automation'],
+    tech: ['React', 'Django', 'PostgreSQL'],
+  },
+  {
+    slug: 'custom-web-application-development', icon: 'globe', category: 'Solutions & Capabilities',
+    title: 'Custom Web Application Development',
+    summary: 'Business portals, dashboards and admin platforms.',
+    overview:
+      'Tailored web applications — business portals, analytics dashboards and admin platforms — built on a modern, scalable stack around your real workflows.',
+    features: ['Business Portals', 'Dashboards', 'Admin Platforms'],
+    services: ['web-app', 'apis-integrations', 'enterprise-applications'],
+    tech: ['React', 'Node.js', 'PostgreSQL'],
+  },
+  {
+    slug: 'mobile-application-development', icon: 'mobile', category: 'Solutions & Capabilities',
+    title: 'Mobile Application Development',
+    summary: 'Android, iOS and cross-platform business apps.',
+    overview:
+      'Performant Android, iOS and cross-platform business apps with clean UX, secure backends and real-time sync — from a single codebase where it makes sense.',
+    features: ['Android', 'iOS', 'Cross-Platform Business Apps'],
+    services: ['mobile-app', 'web-app', 'apis-integrations'],
+    tech: ['Flutter', 'React Native', 'Swift'],
+  },
+  {
+    slug: 'workflow-automation-solutions', icon: 'workflow', category: 'Solutions & Capabilities',
+    title: 'Workflow Automation Solutions',
+    summary: 'Business process automation, digital workflows and RPA integration.',
+    overview:
+      'Automate repetitive business processes — digital workflows, approvals and RPA integration — so teams spend time on work that matters, not manual busywork.',
+    features: ['Business Process Automation', 'Digital Workflows', 'RPA Integration'],
+    services: ['workflow-automation', 'apis-integrations', 'enterprise-applications'],
+    tech: ['Node.js', 'Python', 'Apache Airflow'],
+  },
+  {
+    slug: 'system-integration-api', icon: 'braces', category: 'Solutions & Capabilities',
+    title: 'System Integration & API Development',
+    summary: 'ERP integration, payment gateways, third-party APIs and IoT integration.',
+    overview:
+      'Connect the systems your business runs on — ERP integration, payment gateways, third-party APIs and IoT integration — through reliable, monitored interfaces.',
+    features: ['ERP Integration', 'Payment Gateways', 'Third-Party APIs', 'IoT Integration'],
+    services: ['apis-integrations', 'enterprise-applications', 'internet-of-things'],
+    tech: ['Node.js', 'GraphQL', 'Kafka'],
+  },
+  {
+    slug: 'data-engineering-analytics', icon: 'chart', category: 'Solutions & Capabilities',
+    title: 'Data Engineering & Analytics',
+    summary: 'Data pipelines, ETL, BI dashboards and predictive analytics.',
+    overview:
+      'Turn raw data into decisions — data pipelines and ETL, business-intelligence dashboards and predictive analytics built on a reliable, scalable data foundation.',
+    features: ['Data Pipelines', 'ETL', 'BI Dashboards', 'Predictive Analytics'],
+    services: ['machine-learning', 'artificial-intelligence', 'web-app'],
+    tech: ['Python', 'Apache Airflow', 'Metabase'],
+  },
 ]
 
 export const getProject = (slug) => projects.find((p) => p.slug === slug)

@@ -1,5 +1,5 @@
 import { useParams, Link, useNavigate } from 'react-router-dom'
-import { services, getService } from '../data/services.js'
+import { services, getService, slugifyFeature } from '../data/services.js'
 import { getTechnologyByName } from '../data/technologies.js'
 import Icon from '../components/Icon.jsx'
 import Aurora from '../components/Aurora.jsx'
@@ -75,8 +75,11 @@ export default function ServiceDetail() {
               <ul className="svc-features">
                 {service.features.map((f) => (
                   <li key={f} className="svc-feature">
-                    <span className="svc-feature__check"><Icon name="shield" size={18} /></span>
-                    <span>{f}</span>
+                    <Link to={`/services/${service.slug}/${slugifyFeature(f)}`} className="svc-feature__link">
+                      <span className="svc-feature__check"><Icon name="shield" size={18} /></span>
+                      <span className="svc-feature__text">{f}</span>
+                      <span className="svc-feature__arrow" aria-hidden="true">→</span>
+                    </Link>
                   </li>
                 ))}
               </ul>
