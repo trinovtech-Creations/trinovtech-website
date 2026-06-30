@@ -1,5 +1,5 @@
-import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { useWarp } from '../warp.js'
 import CountUp from '../components/CountUp.jsx'
 import Icon from '../components/Icon.jsx'
 import Aurora from '../components/Aurora.jsx'
@@ -22,12 +22,11 @@ const stats = [
 
 export default function Hero() {
   const navigate = useNavigate()
-  const [launching, setLaunching] = useState(false)
+  const startWarp = useWarp()
 
-  // Clicking the orbit logo plays a glitch + zoom-through transition, then
-  // navigates to Services. Honours reduced-motion by navigating instantly.
+  // Clicking the orbit logo navigates to Services and plays an app-level
+  // transparent pixel-zoom transition over it. Reduced-motion just navigates.
   const launchToServices = () => {
-    if (launching) return
     const reduced =
       typeof window !== 'undefined' &&
       window.matchMedia &&
@@ -36,8 +35,10 @@ export default function Hero() {
       navigate('/services')
       return
     }
-    setLaunching(true)
-    window.setTimeout(() => navigate('/services'), 780)
+    startWarp()
+    // Navigate once the expanding circle has covered the screen, so the page
+    // swap is hidden; the overlay then fades to reveal Services.
+    window.setTimeout(() => navigate('/services'), 400)
   }
 
   return (
@@ -73,7 +74,7 @@ export default function Hero() {
           </div>
         </div>
         <div className="hero__visual">
-          <div className={`orbit ${launching ? 'orbit--launch' : ''}`}>
+          <div className="orbit">
             <div className="orbit__ring orbit__ring--1" />
             <div className="orbit__ring orbit__ring--2" />
             <span className="orbit__logo-glow" />
@@ -98,7 +99,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      {launching && <div className="pixel-warp" aria-hidden="true" />}
     </section>
   )
 }
