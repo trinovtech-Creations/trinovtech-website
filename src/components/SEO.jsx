@@ -213,9 +213,9 @@ const pageJsonLd = (pathname, seo, canonical) => {
       addressCountry: 'IN',
     },
     sameAs: [
-      'https://www.instagram.com/trinovtech',
+      'https://www.instagram.com/trinovtech_creations',
       'https://x.com/trinovtech',
-      'https://www.linkedin.com/company/trinovtech',
+      'https://www.linkedin.com/company/trinovtech-creations',
     ],
   }
 
