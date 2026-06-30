@@ -10,6 +10,7 @@ import ServicesPage from './pages/ServicesPage.jsx'
 import SolutionsPage from './pages/SolutionsPage.jsx'
 import WorkPage from './pages/WorkPage.jsx'
 import AboutPage from './pages/AboutPage.jsx'
+import WhyDetail from './pages/WhyDetail.jsx'
 import ServiceDetail from './pages/ServiceDetail.jsx'
 import SolutionDetail from './pages/SolutionDetail.jsx'
 import TechDetail from './pages/TechDetail.jsx'
@@ -63,6 +64,7 @@ export default function App() {
           <Route path="/solutions" element={<SolutionsPage />} />
           <Route path="/work" element={<WorkPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/why-choose-us/:slug" element={<WhyDetail />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/solutions/:slug" element={<SolutionDetail />} />
           <Route path="/technologies/:slug" element={<TechDetail />} />

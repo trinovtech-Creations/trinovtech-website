@@ -75,7 +75,7 @@ export const industries = [
     title: 'Retail & E-commerce',
     description:
       'High-performance storefronts, mobile apps and inventory systems that scale through peak demand and convert browsers to buyers.',
-    tagline: 'Fast, scalable commerce that converts and never goes down.',
+    tagline: 'Fast, scalable commerce built for peak demand.',
     overview:
       'We build commerce experiences that perform — storefronts, mobile apps, inventory and order systems that stay fast under peak load and turn visitors into loyal customers.',
     challenges: [
@@ -128,7 +128,7 @@ export const industries = [
       'Monitoring distributed assets in the field',
       'Reliable connectivity in harsh environments',
       'Turning meter data into actionable insight',
-      'Scaling to millions of endpoints',
+      'Scaling device fleets and data pipelines',
     ],
     capabilities: [
       'Smart metering and sensor firmware',
@@ -143,7 +143,7 @@ export const industries = [
     icon: 'users',
     title: 'EduTech & E-learning',
     description:
-      'Engaging learning platforms, virtual classrooms and assessment tools that scale to thousands of learners.',
+      'Engaging learning platforms, virtual classrooms and assessment tools built for growing learner communities.',
     tagline: 'Learning experiences that engage and scale.',
     overview:
       'We build education technology that learners love — interactive courses, virtual classrooms, assessments and analytics, engineered to stay fast and reliable as your audience grows.',

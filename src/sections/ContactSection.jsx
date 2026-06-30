@@ -5,7 +5,7 @@ import Aurora from '../components/Aurora.jsx'
 
 const details = [
   { icon: 'phone', label: 'Call us', value: '+91 73958 81708', hint: 'Mon–Sat, 9am – 7pm', href: 'tel:+917395881708' },
-  { icon: 'whatsapp', label: 'WhatsApp', value: '+91 91504 11708', hint: 'Chat with us anytime', href: 'https://wa.me/919150411708', external: true },
+  { icon: 'whatsapp', label: 'WhatsApp', value: '+91 91504 11708', hint: 'Send your project details', href: 'https://wa.me/919150411708', external: true },
   { icon: 'mail', label: 'Email', value: 'info@trinovtech.in', hint: 'We reply within 24 hrs', href: 'mailto:info@trinovtech.in' },
 ]
 
@@ -19,7 +19,7 @@ export default function ContactSection() {
             center
             eyebrow="Contact Us"
             title="Let's talk about your project"
-            subtitle="Reach out and we'll help you find the right strategy and team — from concept to production."
+            subtitle="Share what you want to build, improve, connect, or automate. We’ll help you map the right technical next step."
           />
         </Reveal>
 

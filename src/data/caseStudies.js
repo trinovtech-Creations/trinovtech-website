@@ -1,6 +1,7 @@
-// Case studies / portfolio. These are representative samples — replace the
-// content with your real projects. `tech` entries match technology names so
-// they link to /technologies/:slug; `services` match service slugs.
+// Solution examples / portfolio. These are representative project scenarios;
+// replace them with real client work and verified metrics when available.
+// `tech` entries match technology names so they link to /technologies/:slug;
+// `services` match service slugs.
 export const caseStudies = [
   {
     slug: 'predictive-maintenance-platform',
@@ -8,7 +9,7 @@ export const caseStudies = [
     industry: 'Manufacturing',
     title: 'Predictive Maintenance Platform',
     summary:
-      'An AI platform that predicts equipment failures before they happen, cutting unplanned downtime for a precision manufacturer.',
+      'An AI and IoT platform concept for detecting equipment risk early using machine telemetry and predictive models.',
     challenge:
       'The client’s production line suffered costly, unpredictable machine breakdowns. Maintenance was reactive, and sensor data sat unused across disconnected systems.',
     solution:
@@ -17,9 +18,9 @@ export const caseStudies = [
     services: ['artificial-intelligence', 'internet-of-things', 'devops-cloud'],
     tech: ['Python', 'TensorFlow', 'AWS', 'Docker', 'Grafana'],
     results: [
-      { value: '42%', label: 'Less unplanned downtime' },
-      { value: '3.5x', label: 'Faster fault detection' },
-      { value: '24/7', label: 'Live monitoring' },
+      { value: 'AI', label: 'Failure-risk scoring' },
+      { value: 'IoT', label: 'Telemetry pipeline' },
+      { value: 'Live', label: 'Monitoring dashboard' },
     ],
   },
   {
@@ -28,7 +29,7 @@ export const caseStudies = [
     industry: 'Energy & Utilities',
     title: 'Connected Energy Monitoring',
     summary:
-      'An end-to-end IoT system for smart energy metering — from custom firmware to a cloud analytics dashboard.',
+      'An end-to-end IoT architecture for smart energy monitoring, from embedded firmware to cloud analytics.',
     challenge:
       'A utilities provider needed real-time visibility into distributed energy assets, but had no reliable way to collect and act on field data at scale.',
     solution:
@@ -37,9 +38,9 @@ export const caseStudies = [
     services: ['internet-of-things', 'mcu-programming', 'artificial-intelligence'],
     tech: ['ESP32', 'MQTT', 'AWS IoT', 'Node.js', 'Grafana'],
     results: [
-      { value: '10k+', label: 'Devices connected' },
-      { value: '99.9%', label: 'Telemetry uptime' },
-      { value: '30%', label: 'Faster issue response' },
+      { value: 'MQTT', label: 'Device messaging' },
+      { value: 'OTA', label: 'Remote updates' },
+      { value: 'Cloud', label: 'Analytics dashboard' },
     ],
   },
   {
@@ -48,7 +49,7 @@ export const caseStudies = [
     industry: 'Healthcare',
     title: 'Wearable Health Device',
     summary:
-      'Firmware and PCB design for a low-power wearable that streams vitals to a companion mobile app.',
+      'A low-power wearable product path combining PCB design, RTOS firmware, Bluetooth sync, and a mobile companion app.',
     challenge:
       'A MedTech startup had a prototype concept but needed production-ready hardware and firmware that maximised battery life without sacrificing accuracy.',
     solution:
@@ -57,9 +58,9 @@ export const caseStudies = [
     services: ['pcb-designing', 'rtos-development', 'mobile-app'],
     tech: ['STM32', 'FreeRTOS', 'C / C++', 'Flutter', 'Firebase'],
     results: [
-      { value: '3x', label: 'Longer battery life' },
-      { value: '<2s', label: 'Sync latency' },
-      { value: '2', label: 'App stores shipped' },
+      { value: 'PCB', label: 'Prototype-ready board' },
+      { value: 'RTOS', label: 'Real-time firmware' },
+      { value: 'App', label: 'Mobile companion' },
     ],
   },
   {
@@ -68,7 +69,7 @@ export const caseStudies = [
     industry: 'Logistics',
     title: 'Logistics Tracking Platform',
     summary:
-      'A real-time track-and-trace web and mobile platform that gave a logistics operator full fleet visibility.',
+      'A real-time track-and-trace web and mobile platform approach for fleet visibility and shipment operations.',
     challenge:
       'Manual status updates and siloed tools meant customers had no reliable visibility into shipments, driving up support load.',
     solution:
@@ -77,9 +78,9 @@ export const caseStudies = [
     services: ['web-app', 'mobile-app', 'devops-cloud'],
     tech: ['React', 'Node.js', 'MongoDB', 'React Native', 'Kubernetes'],
     results: [
-      { value: '60%', label: 'Fewer support tickets' },
-      { value: '100%', label: 'Shipment visibility' },
-      { value: '5x', label: 'Scaled at peak' },
+      { value: 'GPS', label: 'Live tracking' },
+      { value: 'RBAC', label: 'Role dashboards' },
+      { value: 'Cloud', label: 'Scalable deploys' },
     ],
   },
   {
@@ -88,18 +89,18 @@ export const caseStudies = [
     industry: 'EduTech',
     title: 'Interactive Learning Console',
     summary:
-      'A web and mobile learning platform with live virtual classrooms and a real-time teacher console that scaled to thousands of concurrent students.',
+      'A web and mobile learning platform blueprint with live classrooms, assessments, and a real-time teacher console.',
     challenge:
-      'An education provider was outgrowing off-the-shelf tools — they needed live classes, assessments and a single console for educators to track learner progress, all reliable under heavy concurrent load.',
+      'An education provider was outgrowing off-the-shelf tools — they needed live classes, assessments and a single console for educators to track learner progress under heavy concurrent load.',
     solution:
       'We built a MERN-stack platform with live virtual classrooms, interactive assessments and an analytics console for teachers. AI-assisted recommendations personalise each learner’s path, and autoscaling cloud infrastructure keeps sessions smooth at peak.',
     duration: '6 months',
     services: ['web-app', 'mobile-app', 'artificial-intelligence', 'devops-cloud'],
     tech: ['React', 'Node.js', 'MongoDB', 'Redis', 'AWS'],
     results: [
-      { value: '5k+', label: 'Concurrent learners' },
-      { value: '38%', label: 'Better course completion' },
-      { value: '99.9%', label: 'Class uptime' },
+      { value: 'Live', label: 'Virtual classrooms' },
+      { value: 'AI', label: 'Learning assistance' },
+      { value: 'Scale', label: 'Cloud architecture' },
     ],
   },
 ]

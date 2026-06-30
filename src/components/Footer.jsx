@@ -30,8 +30,8 @@ export default function Footer() {
         <div className="footer__brand">
           <Logo />
           <p className="footer__tagline">
-            Technology consulting and product development company building innovative,
-            scalable, and reliable digital solutions for modern businesses.
+            Technology consulting and product development company building software,
+            embedded systems, IoT platforms, AI features, and cloud solutions.
           </p>
           <div className="footer__social">
             {socials.map((s) => (
@@ -50,6 +50,7 @@ export default function Footer() {
           <Link to="/solutions#industries">Industries</Link>
           <Link to="/work">Our Work</Link>
           <Link to="/about">About Us</Link>
+          <Link to="/about#why">Why Choose Us</Link>
           <a href="/#contact" onClick={goContact}>Contact</a>
         </div>
 

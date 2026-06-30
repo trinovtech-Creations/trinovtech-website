@@ -8,8 +8,8 @@ export default function CTASection() {
         <Reveal variant="zoom" className="cta-banner__inner">
           <Aurora variant="light" />
           <div className="cta-banner__content">
-            <h2>Ready to build something reliable?</h2>
-            <p>On-demand expertise to reduce costs and speed up development — from concept to production.</p>
+            <h2>Ready to turn your idea into a working product?</h2>
+            <p>Bring Trinovtech into the build for practical engineering support across software, hardware, AI, and cloud.</p>
           </div>
           <a href="#contact" className="btn btn--primary btn--lg btn--shine">Get Started</a>
         </Reveal>

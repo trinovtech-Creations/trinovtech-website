@@ -15,8 +15,8 @@ export default function SolutionsSection({ limit, more }) {
           <SectionHeader
             center
             eyebrow="End-to-End Solutions"
-            title="Solutions Built for Scale"
-            subtitle="Seamless integration and reliable performance — from concept to production."
+            title="Solutions for Real Product Challenges"
+            subtitle="Integrated engineering for connected devices, managed cloud platforms, and custom business applications."
           />
         </Reveal>
         <div className="grid grid--3">

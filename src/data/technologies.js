@@ -14,7 +14,7 @@ export const technologies = [
     tagline: 'The React framework for production — SSR, SSG and edge rendering.',
     description:
       'We reach for Next.js when SEO, performance and developer velocity all matter. Server rendering, file-based routing and image optimisation come built in.',
-    highlights: ['Server-side & static rendering', 'File-based routing', 'API routes & middleware', 'Best-in-class Core Web Vitals'],
+    highlights: ['Server-side & static rendering', 'File-based routing', 'API routes & middleware', 'Performance-focused web delivery'],
     related: ['web-app'],
   },
   {
@@ -125,7 +125,7 @@ export const technologies = [
     slug: 'freertos', name: 'FreeRTOS', mono: 'Fr', category: 'Embedded',
     tagline: 'Real-time operating system for microcontrollers.',
     description:
-      'FreeRTOS gives our embedded products deterministic, real-time multitasking on resource-constrained microcontrollers — proven across millions of devices.',
+      'FreeRTOS gives embedded products deterministic, real-time multitasking on resource-constrained microcontrollers.',
     highlights: ['Real-time task scheduling', 'Tiny memory footprint', 'Inter-task communication', 'Broad MCU support'],
     related: ['rtos-development', 'mcu-programming'],
   },
@@ -165,7 +165,7 @@ export const technologies = [
   },
   {
     slug: 'openai-llms', name: 'OpenAI / LLMs', mono: 'AI', category: 'AI / ML',
-    tagline: 'State-of-the-art language models powering AI features that feel magical.',
+    tagline: 'Modern language models powering useful AI assistants and automation.',
     description:
       'We integrate GPT-class and open LLMs into products — assistants, summarisation, classification and generation — with guardrails for real-world use.',
     highlights: ['GPT & open-model integration', 'Prompt engineering & evaluation', 'Function calling & tool use', 'Safety & cost controls'],

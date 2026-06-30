@@ -4,10 +4,10 @@ import Icon from '../components/Icon.jsx'
 import Aurora from '../components/Aurora.jsx'
 
 const stats = [
-  { value: '50+', label: 'Projects Delivered' },
-  { value: '8', label: 'Core Specialties' },
-  { value: '24/7', label: 'Managed Support' },
-  { value: '100%', label: 'Client Focused' },
+  { value: '8', label: 'Engineering Specialties' },
+  { value: '3', label: 'Product Layers' },
+  { value: '1', label: 'End-to-End Partner' },
+  { value: '100%', label: 'Outcome Focused' },
 ]
 
 export default function Hero() {
@@ -22,13 +22,13 @@ export default function Hero() {
             <span className="pulse-dot" /> Technology Consulting & Product Development
           </span>
           <h1 className="hero__title">
-            We help you identify opportunities for{' '}
-            <span className="gradient-text gradient-text--anim">top growth</span> and implement the right strategies
+            We build reliable{' '}
+            <span className="gradient-text gradient-text--anim">digital and embedded products</span> from concept to production
           </h1>
           <p className="hero__subtitle">
-            Trinovtech is a technology consulting and product development company dedicated to
-            building innovative, scalable, and reliable digital solutions for modern businesses.
-            On-demand expertise to reduce costs and speed up development.
+            Trinovtech helps startups and businesses turn ideas into production-ready software,
+            connected devices, AI features, cloud platforms, and mobile experiences. Work with
+            focused engineers across the full stack: hardware, firmware, backend, frontend, and cloud.
           </p>
           <div className="hero__actions">
             <Link to="/services" className="btn btn--primary btn--lg btn--shine">Explore</Link>

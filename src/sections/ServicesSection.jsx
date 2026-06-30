@@ -15,7 +15,7 @@ export default function ServicesSection({ limit, more }) {
           <SectionHeader
             center
             title={<><span className="title-eyebrow">What We Do</span><span className="gradient-text">Our Services</span></>}
-            subtitle="On-demand expertise across the full technology spectrum — from silicon to cloud."
+            subtitle="Engineering services across the product stack — AI, cloud, IoT, firmware, PCB, mobile, and web."
           />
         </Reveal>
         <div className="grid grid--4">

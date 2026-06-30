@@ -14,9 +14,9 @@ export default function WorkSection({ limit, more }) {
         <Reveal>
           <SectionHeader
             center
-            eyebrow="Our Work"
-            title="Outcomes we’ve engineered"
-            subtitle="A look at how we turn complex problems into measurable results — from silicon to cloud."
+            eyebrow="Project Examples"
+            title="What Trinovtech Can Build"
+            subtitle="Representative solution paths across AI, IoT, embedded systems, cloud platforms, mobile apps, and web applications."
           />
         </Reveal>
         <div className="grid grid--2">
@@ -38,7 +38,7 @@ export default function WorkSection({ limit, more }) {
                     </div>
                   ))}
                 </div>
-                <span className="card__link work-card__more">Read case study →</span>
+                <span className="card__link work-card__more">Read example →</span>
               </Link>
               </Tilt>
             </Reveal>
