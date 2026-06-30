@@ -4,6 +4,14 @@ import { solutions } from '../data/solutions.js'
 import Logo from './Logo.jsx'
 import Icon from './Icon.jsx'
 
+// Social profiles. Update the handle/URLs to your real accounts.
+const socials = [
+  { label: 'Instagram', icon: 'instagram', href: 'https://www.instagram.com/trinovtech' },
+  { label: 'WhatsApp', icon: 'whatsapp', href: 'https://wa.me/919150411708' },
+  { label: 'X', icon: 'twitter', href: 'https://x.com/trinovtech' },
+  { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/company/trinovtech' },
+]
+
 export default function Footer() {
   const navigate = useNavigate()
   const location = useLocation()
@@ -35,19 +43,22 @@ export default function Footer() {
             scalable, and reliable digital solutions for modern businesses.
           </p>
           <div className="footer__social">
-            <a href="#" aria-label="Instagram"><Icon name="instagram" mono size={18} /></a>
-            <a href="#" aria-label="LinkedIn"><Icon name="linkedin" mono size={18} /></a>
-            <a href="#" aria-label="Twitter"><Icon name="twitter" mono size={18} /></a>
-            <a href="#" aria-label="TikTok"><Icon name="tiktok" mono size={18} /></a>
+            {socials.map((s) => (
+              <a key={s.label} href={s.href} aria-label={s.label} target="_blank" rel="noopener noreferrer">
+                <Icon name={s.icon} mono size={18} />
+              </a>
+            ))}
           </div>
         </div>
 
         <div className="footer__col">
           <h4>Quick Links</h4>
           <SectionLink id="home">Home</SectionLink>
-          <SectionLink id="about">About Us</SectionLink>
-          <SectionLink id="solutions">Solutions</SectionLink>
           <SectionLink id="services">Services</SectionLink>
+          <SectionLink id="solutions">Solutions</SectionLink>
+          <SectionLink id="industries">Industries</SectionLink>
+          <SectionLink id="work">Our Work</SectionLink>
+          <SectionLink id="about">About Us</SectionLink>
           <SectionLink id="contact">Contact</SectionLink>
         </div>
 
@@ -94,8 +105,8 @@ export default function Footer() {
       <div className="container footer__bottom">
         <p>© 2026 Trinovtech. All rights reserved.</p>
         <div className="footer__legal">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms &amp; Condition</a>
+          <Link to="/privacy-policy">Privacy Policy</Link>
+          <Link to="/terms">Terms &amp; Conditions</Link>
         </div>
       </div>
     </footer>

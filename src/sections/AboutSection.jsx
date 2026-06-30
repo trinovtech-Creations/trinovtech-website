@@ -1,12 +1,9 @@
+import { Link } from 'react-router-dom'
 import SectionHeader from '../components/SectionHeader.jsx'
 import Reveal from '../components/Reveal.jsx'
+import Tilt from '../components/Tilt.jsx'
 import Icon from '../components/Icon.jsx'
-
-const values = [
-  { icon: 'target', title: 'Mission', text: 'To help businesses identify opportunities for top growth and implement the right strategies through reliable engineering.' },
-  { icon: 'eye', title: 'Vision', text: 'To be the trusted technology partner for companies building the next generation of digital and embedded products.' },
-  { icon: 'gem', title: 'Values', text: 'Integrity, quality, and a relentless client-centric focus in everything we deliver.' },
-]
+import { pillars } from '../data/about.js'
 
 const timeline = [
   { year: 'Concept', text: 'We start by understanding your goals and identifying growth opportunities.' },
@@ -28,13 +25,16 @@ export default function AboutSection() {
           />
         </Reveal>
         <div className="grid grid--3">
-          {values.map((v, i) => (
-            <Reveal key={v.title} delay={i * 100}>
-              <div className="card feature-card">
-                <div className="feature-card__icon"><Icon name={v.icon} /></div>
-                <h3>{v.title}</h3>
-                <p>{v.text}</p>
-              </div>
+          {pillars.map((p, i) => (
+            <Reveal key={p.slug} delay={i * 100}>
+              <Tilt>
+                <Link to={`/about/${p.slug}`} className="card feature-card feature-card--link">
+                  <div className="feature-card__icon"><Icon name={p.icon} /></div>
+                  <h3>{p.card}</h3>
+                  <p>{p.statement}</p>
+                  <span className="card__link feature-card__more">Learn more →</span>
+                </Link>
+              </Tilt>
             </Reveal>
           ))}
         </div>

@@ -8,6 +8,11 @@ import OnePage from './pages/OnePage.jsx'
 import ServiceDetail from './pages/ServiceDetail.jsx'
 import SolutionDetail from './pages/SolutionDetail.jsx'
 import TechDetail from './pages/TechDetail.jsx'
+import CaseStudyDetail from './pages/CaseStudyDetail.jsx'
+import IndustryDetail from './pages/IndustryDetail.jsx'
+import AboutPillarDetail from './pages/AboutPillarDetail.jsx'
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
+import TermsConditions from './pages/TermsConditions.jsx'
 import { IconDefs } from './components/Icon.jsx'
 
 // On navigation: scroll to the hashed section if present, otherwise to the top.
@@ -52,6 +57,11 @@ export default function App() {
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/solutions/:slug" element={<SolutionDetail />} />
           <Route path="/technologies/:slug" element={<TechDetail />} />
+          <Route path="/work/:slug" element={<CaseStudyDetail />} />
+          <Route path="/industries/:slug" element={<IndustryDetail />} />
+          <Route path="/about/:slug" element={<AboutPillarDetail />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms" element={<TermsConditions />} />
           <Route path="*" element={<OnePage />} />
         </Routes>
       </main>

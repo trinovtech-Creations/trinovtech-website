@@ -1,0 +1,60 @@
+name: Deploy frontend to GitHub Pages
+
+# Builds the Vite app and publishes it to GitHub Pages on every push to main.
+# Served at the custom domain in public/CNAME (trinovtech.in).
+#
+# One-time setup in the repo: Settings → Pages → Build and deployment →
+# Source: "GitHub Actions". Then add the DNS records for the apex domain
+# (see DEPLOY.md) and tick "Enforce HTTPS" once the cert is issued.
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+# Allow this workflow to publish to Pages.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one concurrent deploy; don't cancel an in-progress one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Build
+        run: npm run build
+        env:
+          # Optional: set a VITE_API_URL repo variable to bake the live API URL in.
+          VITE_API_URL: ${{ vars.VITE_API_URL }}
+      # SPA fallback: serve index.html for unknown paths so deep links and
+      # page refreshes (e.g. /services/foo) don't 404 on GitHub Pages.
+      - name: Add SPA 404 fallback
+        run: cp dist/index.html dist/404.html
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    name: Deploy
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

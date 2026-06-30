@@ -1,6 +1,7 @@
 import SectionHeader from '../components/SectionHeader.jsx'
 import SolutionCard from '../components/SolutionCard.jsx'
 import Reveal from '../components/Reveal.jsx'
+import Tilt from '../components/Tilt.jsx'
 import { solutions } from '../data/solutions.js'
 
 export default function SolutionsSection() {
@@ -18,7 +19,7 @@ export default function SolutionsSection() {
         <div className="grid grid--3">
           {solutions.map((s, i) => (
             <Reveal key={s.slug} delay={i * 110}>
-              <SolutionCard solution={s} />
+              <Tilt><SolutionCard solution={s} /></Tilt>
             </Reveal>
           ))}
         </div>

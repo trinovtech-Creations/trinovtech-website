@@ -4,9 +4,10 @@ import Logo from './Logo.jsx'
 
 const links = [
   { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
   { id: 'services', label: 'Services' },
   { id: 'solutions', label: 'Solutions' },
+  { id: 'work', label: 'Work' },
+  { id: 'about', label: 'About' },
 ]
 
 export default function Navbar() {

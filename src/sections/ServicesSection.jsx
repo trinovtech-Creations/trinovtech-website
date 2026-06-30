@@ -1,6 +1,7 @@
 import SectionHeader from '../components/SectionHeader.jsx'
 import ServiceCard from '../components/ServiceCard.jsx'
 import Reveal from '../components/Reveal.jsx'
+import Tilt from '../components/Tilt.jsx'
 import { services } from '../data/services.js'
 
 export default function ServicesSection() {
@@ -17,7 +18,7 @@ export default function ServicesSection() {
         <div className="grid grid--4">
           {services.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 4) * 90}>
-              <ServiceCard service={s} />
+              <Tilt><ServiceCard service={s} /></Tilt>
             </Reveal>
           ))}
         </div>

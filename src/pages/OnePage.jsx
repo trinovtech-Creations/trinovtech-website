@@ -2,6 +2,8 @@ import Hero from '../sections/Hero.jsx'
 import ServicesSection from '../sections/ServicesSection.jsx'
 import TechSection from '../sections/TechSection.jsx'
 import SolutionsSection from '../sections/SolutionsSection.jsx'
+import IndustriesSection from '../sections/IndustriesSection.jsx'
+import WorkSection from '../sections/WorkSection.jsx'
 import WhySection from '../sections/WhySection.jsx'
 import AboutSection from '../sections/AboutSection.jsx'
 import CTASection from '../sections/CTASection.jsx'
@@ -19,6 +21,8 @@ export default function OnePage() {
       <ServicesSection />
       <TechSection />
       <SolutionsSection />
+      <IndustriesSection />
+      <WorkSection />
       <WhySection />
       <AboutSection />
       <CTASection />

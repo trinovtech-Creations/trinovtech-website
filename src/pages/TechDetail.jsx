@@ -5,6 +5,22 @@ import Icon from '../components/Icon.jsx'
 import Reveal from '../components/Reveal.jsx'
 import CountUp from '../components/CountUp.jsx'
 
+// Human-readable classification derived from a technology's category.
+const TECH_TYPES = {
+  Frontend: 'UI framework / library',
+  Backend: 'Backend technology',
+  Language: 'Programming language',
+  API: 'API technology',
+  Database: 'Database',
+  Cloud: 'Cloud platform',
+  DevOps: 'DevOps tooling',
+  'AI / ML': 'AI / ML framework',
+  Embedded: 'Embedded technology',
+  IoT: 'IoT technology',
+  Mobile: 'Mobile framework',
+  Hardware: 'Hardware / EDA tool',
+}
+
 export default function TechDetail() {
   const { slug } = useParams()
   const tech = getTechnology(slug)
@@ -23,6 +39,17 @@ export default function TechDetail() {
 
   const related = (tech.related || []).map(getService).filter(Boolean)
   const others = technologies.filter((t) => t.slug !== tech.slug)
+
+  // "Pairs with": other technologies we use on the same services, ranked by how
+  // many services they share with this one.
+  const relatedSlugs = new Set(tech.related || [])
+  const pairsWith = technologies
+    .filter((t) => t.slug !== tech.slug)
+    .map((t) => ({ tech: t, shared: (t.related || []).filter((r) => relatedSlugs.has(r)).length }))
+    .filter((x) => x.shared > 0)
+    .sort((a, b) => b.shared - a.shared)
+    .slice(0, 4)
+    .map((x) => x.tech)
 
   return (
     <article className="td">
@@ -84,14 +111,27 @@ export default function TechDetail() {
 
           <Reveal variant="left" className="td-aside">
             <div className="td-spec">
-              <p className="td-spec__title">spec</p>
+              <p className="td-spec__title">// at a glance</p>
               <dl className="td-spec__list">
-                <div><dt>name</dt><dd>{tech.name}</dd></div>
                 <div><dt>category</dt><dd>{tech.category}</dd></div>
-                <div><dt>monogram</dt><dd>{tech.mono}</dd></div>
+                <div><dt>type</dt><dd>{TECH_TYPES[tech.category] || 'Technology'}</dd></div>
                 <div><dt>used_in</dt><dd><CountUp value={`${related.length} service${related.length === 1 ? '' : 's'}`} /></dd></div>
-                <div><dt>status</dt><dd className="td-spec__ok">production-ready</dd></div>
+                <div><dt>capabilities</dt><dd>{tech.highlights.length} focus areas</dd></div>
               </dl>
+
+              {pairsWith.length > 0 && (
+                <div className="td-spec__pairs">
+                  <p className="td-spec__subtitle">// often paired with</p>
+                  <div className="td-pairs">
+                    {pairsWith.map((t) => (
+                      <Link key={t.slug} to={`/technologies/${t.slug}`} className="td-pair">
+                        <span className="td-pair__mono">{t.mono}</span>{t.name}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <Link to="/#contact" className="btn btn--primary btn--block td-spec__cta">Start a project</Link>
             </div>
           </Reveal>
