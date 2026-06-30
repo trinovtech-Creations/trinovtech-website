@@ -6,11 +6,12 @@ import Aurora from '../components/Aurora.jsx'
 import Reveal from '../components/Reveal.jsx'
 
 // Shared engagement process — same dependable approach across every service.
+// Each step links to its /how-we-work/:slug detail page.
 const PROCESS = [
-  { icon: 'eye', title: 'Discover', text: 'We map your goals, constraints and success metrics before a line of code is written.' },
-  { icon: 'gem', title: 'Design', text: 'Architecture, UX and a clear technical plan you sign off on — no surprises later.' },
-  { icon: 'gear', title: 'Build', text: 'Agile delivery in tight iterations, with working demos and transparent progress.' },
-  { icon: 'rocket', title: 'Launch & Support', text: 'We ship to production and stay on for monitoring, iteration and growth.' },
+  { slug: 'discover', icon: 'eye', title: 'Discover', text: 'We map your goals, constraints and success metrics before a line of code is written.' },
+  { slug: 'design', icon: 'gem', title: 'Design', text: 'Architecture, UX and a clear technical plan you sign off on — no surprises later.' },
+  { slug: 'build', icon: 'gear', title: 'Build', text: 'Agile delivery in tight iterations, with working demos and transparent progress.' },
+  { slug: 'launch', icon: 'rocket', title: 'Launch & Support', text: 'We ship to production and stay on for monitoring, iteration and growth.' },
 ]
 
 export default function ServiceDetail() {
@@ -126,12 +127,13 @@ export default function ServiceDetail() {
           <div className="grid grid--4 svc-process">
             {PROCESS.map((p, i) => (
               <Reveal key={p.title} delay={(i % 4) * 90}>
-                <div className="card svc-step">
+                <Link to={`/how-we-work/${p.slug}`} className="card svc-step svc-step--link">
                   <span className="svc-step__num">{String(i + 1).padStart(2, '0')}</span>
                   <span className="svc-step__icon"><Icon name={p.icon} size={26} /></span>
                   <h3>{p.title}</h3>
                   <p>{p.text}</p>
-                </div>
+                  <span className="card__link svc-step__more">Learn more →</span>
+                </Link>
               </Reveal>
             ))}
           </div>
