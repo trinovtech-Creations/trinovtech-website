@@ -163,6 +163,105 @@ const PATHS = {
     </>
   ),
   dot: <circle cx="12" cy="12" r="3" />,
+
+  // ===== Service icons (one per service) =====
+  sparkles: (
+    <>
+      <path d="M11 3l1.8 4.7L17.5 9.5l-4.7 1.8L11 16l-1.8-4.7L4.5 9.5l4.7-1.8z" />
+      <path d="M18 14v4M16 16h4" />
+    </>
+  ),
+  robot: (
+    <>
+      <rect x="5" y="8" width="14" height="10" rx="2" />
+      <circle cx="12" cy="5" r="1" />
+      <path d="M12 6v2M4 13H3M21 13h-1" />
+      <circle cx="9.5" cy="13" r="1" />
+      <circle cx="14.5" cy="13" r="1" />
+    </>
+  ),
+  network: (
+    <>
+      <circle cx="6" cy="6" r="2" />
+      <circle cx="18" cy="6" r="2" />
+      <circle cx="12" cy="18" r="2" />
+      <path d="M7.5 7.5 11 16M16.5 7.5 13 16M8 6h8" />
+    </>
+  ),
+  message: (
+    <>
+      <path d="M5 5h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H9l-4 3v-3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z" />
+      <path d="M9 9.5h6M9 12h4" />
+    </>
+  ),
+  code: <path d="M9 8l-4 4 4 4M15 8l4 4-4 4" />,
+  terminal: (
+    <>
+      <rect x="3" y="4" width="18" height="16" rx="2" />
+      <path d="M7 9l3 2.5L7 14M12.5 14H16" />
+    </>
+  ),
+  migrate: (
+    <>
+      <path d="M3 8h11M10 4l4 4-4 4" />
+      <path d="M21 16H10M14 12l-4 4 4 4" />
+    </>
+  ),
+  cube: (
+    <>
+      <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z" />
+      <path d="M4 7.5l8 4.5 8-4.5M12 12v9" />
+    </>
+  ),
+  infinity: (
+    <path d="M8.5 9.5a2.5 2.5 0 1 0 0 5c1.7 0 2.5-1.2 3.5-2.5s1.8-2.5 3.5-2.5a2.5 2.5 0 0 1 0 5c-1.7 0-2.5-1.2-3.5-2.5S10.2 9.5 8.5 9.5z" />
+  ),
+  server: (
+    <>
+      <rect x="4" y="4" width="16" height="6" rx="1" />
+      <rect x="4" y="14" width="16" height="6" rx="1" />
+      <path d="M7.5 7h.01M7.5 17h.01" />
+    </>
+  ),
+  layers: (
+    <>
+      <path d="M12 3l9 5-9 5-9-5z" />
+      <path d="M3 13l9 5 9-5" />
+    </>
+  ),
+  braces: (
+    <>
+      <path d="M9 4c-1.7 0-2 1.2-2 3s-.5 2.5-2 2.5c1.5 0 2 .7 2 2.5s.3 3 2 3" />
+      <path d="M15 4c1.7 0 2 1.2 2 3s.5 2.5 2 2.5c-1.5 0-2 .7-2 2.5s-.3 3-2 3" />
+    </>
+  ),
+  workflow: (
+    <>
+      <rect x="3" y="4" width="6" height="5" rx="1" />
+      <rect x="15" y="15" width="6" height="5" rx="1" />
+      <path d="M6 9v4a2 2 0 0 0 2 2h7" />
+    </>
+  ),
+  blueprint: (
+    <>
+      <rect x="4" y="3" width="16" height="18" rx="2" />
+      <circle cx="14" cy="14" r="3" />
+      <path d="M8 7h8M8 11h3" />
+    </>
+  ),
+  flask: (
+    <>
+      <path d="M9 3h6M10 3v6l-4.3 7.6A1.5 1.5 0 0 0 7 19h10a1.5 1.5 0 0 0 1.3-2.4L14 9V3" />
+      <path d="M7.5 15h9" />
+    </>
+  ),
+  wave: <path d="M3 14c1.5 0 1.5-4 3-4s1.5 4 3 4 1.5-4 3-4 1.5 4 3 4 1.5-4 3-4" />,
+  factory: (
+    <>
+      <path d="M3 21V11l4 2.5V11l4 2.5V11l4 2.5V8h2v13z" />
+      <path d="M2 21h20M7 17h.01M11 17h.01M15 17h.01" />
+    </>
+  ),
 }
 
 export function IconDefs() {

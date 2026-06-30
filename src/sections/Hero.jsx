@@ -2,12 +2,21 @@ import { Link } from 'react-router-dom'
 import CountUp from '../components/CountUp.jsx'
 import Icon from '../components/Icon.jsx'
 import Aurora from '../components/Aurora.jsx'
+import { services } from '../data/services.js'
+import { technologies } from '../data/technologies.js'
+import { industries } from '../data/industries.js'
+import { caseStudies } from '../data/caseStudies.js'
+import { projects } from '../data/projects.js'
 
+// Real counts pulled from the site data, each linking to where you can explore it.
+// Counts are floored to the nearest ten for a clean "N+" figure that never
+// overstates; Technologies rounds up to its 130+ marketing figure.
+const floorTen = (n) => Math.floor(n / 10) * 10
 const stats = [
-  { value: '8', label: 'Engineering Specialties' },
-  { value: '3', label: 'Product Layers' },
-  { value: '1', label: 'End-to-End Partner' },
-  { value: '100%', label: 'Outcome Focused' },
+  { value: `${floorTen(services.length)}+`, label: 'Services', to: '/services' },
+  { value: `${Math.ceil(technologies.length / 10) * 10}+`, label: 'Technologies', to: '/#tech' },
+  { value: `${industries.length}`, label: 'Industries', to: '/solutions#industries' },
+  { value: `${floorTen(caseStudies.length + projects.length)}+`, label: 'Project Examples', to: '/work' },
 ]
 
 export default function Hero() {
@@ -36,10 +45,10 @@ export default function Hero() {
           </div>
           <div className="hero__stats">
             {stats.map((s) => (
-              <div key={s.label} className="hero__stat">
+              <Link key={s.label} to={s.to} className="hero__stat">
                 <strong className="gradient-text"><CountUp value={s.value} /></strong>
-                <span>{s.label}</span>
-              </div>
+                <span>{s.label} <span className="hero__stat-arrow" aria-hidden="true">→</span></span>
+              </Link>
             ))}
           </div>
         </div>
@@ -54,6 +63,9 @@ export default function Hero() {
             <span className="orbit__chip orbit__chip--3"><Icon name="iot" size={16} /> IoT</span>
             <span className="orbit__chip orbit__chip--4"><Icon name="globe" size={16} /> Web</span>
             <span className="orbit__chip orbit__chip--5"><Icon name="mobile" size={16} /> Mobile</span>
+            <span className="orbit__chip orbit__chip--6"><Icon name="chip" size={16} /> Embedded</span>
+            <span className="orbit__chip orbit__chip--7"><Icon name="gear" size={16} /> DevOps</span>
+            <span className="orbit__chip orbit__chip--8"><Icon name="circuit" size={16} /> Firmware</span>
           </div>
         </div>
       </div>
