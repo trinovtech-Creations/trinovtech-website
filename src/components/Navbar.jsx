@@ -40,18 +40,6 @@ export default function Navbar() {
   }
 
   // Lock body scroll and close on Escape while the mobile drawer is open.
-  useEffect(() => {
-    if (!open) return
-    const prev = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
-    const onKey = (e) => e.key === 'Escape' && setOpen(false)
-    window.addEventListener('keydown', onKey)
-    return () => {
-      document.body.style.overflow = prev
-      window.removeEventListener('keydown', onKey)
-    }
-  }, [open])
-
   return (
     <header className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="container navbar__inner">
@@ -68,7 +56,6 @@ export default function Navbar() {
 
         <div
           className={`nav__scrim ${open ? 'nav__scrim--show' : ''}`}
-          onClick={() => setOpen(false)}
           aria-hidden="true"
         />
 
