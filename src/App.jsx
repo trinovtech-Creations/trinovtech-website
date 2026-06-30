@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import ScrollProgress from './components/ScrollProgress.jsx'
 import PageLoader from './components/PageLoader.jsx'
+import SEO from './components/SEO.jsx'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import FloatingActions from './components/FloatingActions.jsx'
@@ -53,6 +54,7 @@ export default function App() {
   return (
     <div className="app">
       <IconDefs />
+      <SEO />
       <PageLoader show={loading} />
       <ScrollProgress />
       <ScrollManager />
