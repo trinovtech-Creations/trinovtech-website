@@ -699,3 +699,15 @@ export const getService = (slug) => services.find((s) => s.slug === slug)
 
 // Ordered list of service categories (for grouped layouts).
 export const serviceCategories = [...new Set(services.map((s) => s.category))]
+
+// Slug for a "What's included" feature, so each can have its own detail page.
+export const slugifyFeature = (text) =>
+  String(text).toLowerCase().replace(/&/g, ' and ').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')
+
+// Resolve a service + feature from a service slug and a feature slug.
+export const getServiceFeature = (serviceSlug, featureSlug) => {
+  const service = getService(serviceSlug)
+  if (!service) return null
+  const title = (service.features || []).find((f) => slugifyFeature(f) === featureSlug)
+  return title ? { service, title } : null
+}
