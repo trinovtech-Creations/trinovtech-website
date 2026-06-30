@@ -6,10 +6,10 @@ import Icon from './Icon.jsx'
 
 // Social profiles. Update the handle/URLs to your real accounts.
 const socials = [
-  { label: 'Instagram', icon: 'instagram', href: 'https://www.instagram.com/trinovtech' },
+  { label: 'Instagram', icon: 'instagram', href: 'https://www.instagram.com/trinovtech_creations?igsh=MWk2djhldHNwam9vcw%3D%3D&utm_source=qr' },
   { label: 'WhatsApp', icon: 'whatsapp', href: 'https://wa.me/919150411708' },
-  { label: 'X', icon: 'twitter', href: 'https://x.com/trinovtech' },
-  { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/company/trinovtech' },
+  { label: 'X', icon: 'twitter', href: 'https://x.com/trinovtech?s=11' },
+  { label: 'LinkedIn', icon: 'linkedin', href: 'https://www.linkedin.com/company/trinovtech-creations/' },
 ]
 
 export default function Footer() {
