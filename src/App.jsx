@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
+import { WarpContext } from './warp.js'
 import ScrollProgress from './components/ScrollProgress.jsx'
 import PageLoader from './components/PageLoader.jsx'
 import SEO from './components/SEO.jsx'
@@ -44,6 +45,13 @@ function ScrollManager() {
 export default function App() {
   const { pathname } = useLocation()
   const [loading, setLoading] = useState(true)
+  // App-level page-transition overlay: a transparent pixel zoom that plays
+  // over the destination page (so the next screen shows through it).
+  const [warp, setWarp] = useState(false)
+  const startWarp = useCallback(() => {
+    setWarp(false)
+    requestAnimationFrame(() => setWarp(true))
+  }, [])
 
   // Show the branded loader on first load and on every page (pathname) change.
   // Hash-only changes (in-page anchors) keep the same pathname, so they don't trigger it.
@@ -54,7 +62,9 @@ export default function App() {
   }, [pathname])
 
   return (
+    <WarpContext.Provider value={startWarp}>
     <div className="app">
+      {warp && <div className="warp" aria-hidden="true" onAnimationEnd={() => setWarp(false)} />}
       <IconDefs />
       <SEO />
       <PageLoader show={loading} />
@@ -85,5 +95,6 @@ export default function App() {
       <Footer />
       <FloatingActions />
     </div>
+    </WarpContext.Provider>
   )
 }
