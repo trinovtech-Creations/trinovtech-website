@@ -8,8 +8,10 @@ import { solutions } from '../src/data/solutions.js'
 import { industries } from '../src/data/industries.js'
 import { technologies } from '../src/data/technologies.js'
 import { caseStudies } from '../src/data/caseStudies.js'
+import { projects } from '../src/data/projects.js'
 import { pillars } from '../src/data/about.js'
 import { reasons } from '../src/data/why.js'
+import { processSteps } from '../src/data/process.js'
 
 const SITE = 'https://trinovtech.in'
 const lastmod = new Date().toISOString().slice(0, 10)
@@ -21,9 +23,11 @@ const dynamicPaths = [
   ...solutions.map((s) => `/solutions/${s.slug}`),
   ...technologies.map((t) => `/technologies/${t.slug}`),
   ...caseStudies.map((c) => `/work/${c.slug}`),
+  ...projects.map((p) => `/projects/${p.slug}`),
   ...industries.map((i) => `/industries/${i.slug}`),
   ...pillars.map((p) => `/about/${p.slug}`),
   ...reasons.map((r) => `/why-choose-us/${r.slug}`),
+  ...processSteps.map((s) => `/how-we-work/${s.slug}`),
 ]
 
 const paths = [...staticPaths, ...dynamicPaths]

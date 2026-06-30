@@ -4,13 +4,7 @@ import Reveal from '../components/Reveal.jsx'
 import Tilt from '../components/Tilt.jsx'
 import Icon from '../components/Icon.jsx'
 import { pillars } from '../data/about.js'
-
-const timeline = [
-  { year: 'Discover', text: 'We understand the business goal, users, constraints, and the technical path to launch.' },
-  { year: 'Design', text: 'We shape the architecture, user experience, hardware plan, or cloud foundation around your real requirements.' },
-  { year: 'Build', text: 'Our team develops in focused iterations with testing, reviews, and clear progress updates.' },
-  { year: 'Launch', text: 'We help deploy, hand over, monitor, and improve the product after it reaches users.' },
-]
+import { processSteps } from '../data/process.js'
 
 // `limit`/`more` power the Home teaser; `showTimeline` keeps the process
 // timeline on the full /about page only.
@@ -54,11 +48,12 @@ export default function AboutSection({ limit, more, showTimeline = true }) {
               <h3 className="about-process-title">How We Take Products Forward</h3>
             </Reveal>
             <div className="timeline">
-              {timeline.map((t, i) => (
-                <Reveal key={t.year} delay={i * 120} className="timeline__item">
+              {processSteps.map((t, i) => (
+                <Reveal as={Link} to={`/how-we-work/${t.slug}`} key={t.slug} delay={i * 120} className="timeline__item timeline__item--link">
                   <div className="timeline__dot">{i + 1}</div>
-                  <h3>{t.year}</h3>
-                  <p>{t.text}</p>
+                  <h3>{t.step}</h3>
+                  <p>{t.tagline}</p>
+                  <span className="timeline__more">Learn more →</span>
                 </Reveal>
               ))}
             </div>

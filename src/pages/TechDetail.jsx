@@ -1,9 +1,11 @@
+import { useEffect, useState } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { technologies, getTechnology } from '../data/technologies.js'
 import { getService } from '../data/services.js'
 import Icon from '../components/Icon.jsx'
 import Reveal from '../components/Reveal.jsx'
 import CountUp from '../components/CountUp.jsx'
+import Typewriter from '../components/Typewriter.jsx'
 
 // Human-readable classification derived from a technology's category.
 const TECH_TYPES = {
@@ -24,6 +26,9 @@ const TECH_TYPES = {
 export default function TechDetail() {
   const { slug } = useParams()
   const tech = getTechnology(slug)
+  // Which spec breakout popover is open: 'used' | 'caps' | null.
+  const [open, setOpen] = useState(null)
+  useEffect(() => setOpen(null), [slug])
 
   if (!tech) {
     return (
@@ -79,7 +84,7 @@ export default function TechDetail() {
                 </div>
               </div>
 
-              <p className="td-prompt"><span className="td-caret">$</span> {tech.tagline}</p>
+              <p className="td-prompt"><span className="td-caret">$</span> <Typewriter key={tech.slug} text={tech.tagline} /></p>
 
               <div className="td-hero__actions">
                 <Link to="/#contact" className="btn btn--primary btn--lg">Build with {tech.name}</Link>
@@ -115,9 +120,58 @@ export default function TechDetail() {
               <dl className="td-spec__list">
                 <div><dt>category</dt><dd>{tech.category}</dd></div>
                 <div><dt>type</dt><dd>{TECH_TYPES[tech.category] || 'Technology'}</dd></div>
-                <div><dt>used_in</dt><dd><CountUp value={`${related.length} service${related.length === 1 ? '' : 's'}`} /></dd></div>
-                <div><dt>capabilities</dt><dd>{tech.highlights.length} focus areas</dd></div>
+
+                <div>
+                  <dt>used_in</dt>
+                  <dd>
+                    <button
+                      type="button"
+                      className="td-breakout__trigger"
+                      aria-expanded={open === 'used'}
+                      disabled={related.length === 0}
+                      onClick={() => setOpen(open === 'used' ? null : 'used')}
+                    >
+                      <CountUp value={`${related.length} service${related.length === 1 ? '' : 's'}`} />
+                      {related.length > 0 && <span className="td-breakout__chev" aria-hidden="true">▾</span>}
+                    </button>
+                    {open === 'used' && (
+                      <div className="td-breakout" role="menu">
+                        {related.map((sv) => (
+                          <Link key={sv.slug} to={`/services/${sv.slug}`} className="td-breakout__item" onClick={() => setOpen(null)}>
+                            <span className="td-breakout__icon"><Icon name={sv.icon} size={16} mono /></span>
+                            {sv.title}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </dd>
+                </div>
+
+                <div>
+                  <dt>capabilities</dt>
+                  <dd>
+                    <button
+                      type="button"
+                      className="td-breakout__trigger"
+                      aria-expanded={open === 'caps'}
+                      onClick={() => setOpen(open === 'caps' ? null : 'caps')}
+                    >
+                      {tech.highlights.length} focus areas
+                      <span className="td-breakout__chev" aria-hidden="true">▾</span>
+                    </button>
+                    {open === 'caps' && (
+                      <div className="td-breakout" role="menu">
+                        {tech.highlights.map((h) => (
+                          <span key={h} className="td-breakout__item td-breakout__item--static">
+                            <span className="td-breakout__bullet">▸</span>{h}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </dd>
+                </div>
               </dl>
+              {open && <button className="td-breakout__scrim" aria-label="Close" onClick={() => setOpen(null)} />}
 
               {pairsWith.length > 0 && (
                 <div className="td-spec__pairs">
@@ -184,8 +238,8 @@ export default function TechDetail() {
             <h2 className="td-h2">Other technologies</h2>
           </Reveal>
           <div className="td-chips">
-            {others.map((t) => (
-              <Link key={t.slug} to={`/technologies/${t.slug}`} className="td-chip">
+            {others.map((t, i) => (
+              <Link key={t.slug} to={`/technologies/${t.slug}`} className="td-chip" style={{ '--i': i }}>
                 <span className="td-chip__mono">{t.mono}</span>
                 {t.name}
               </Link>

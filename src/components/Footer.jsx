@@ -56,16 +56,18 @@ export default function Footer() {
 
         <div className="footer__col">
           <h4>Solutions</h4>
-          {solutions.map((s) => (
+          {solutions.slice(0, 6).map((s) => (
             <Link key={s.slug} to={`/solutions/${s.slug}`}>{s.title}</Link>
           ))}
+          <Link to="/solutions" className="footer__more">All solutions →</Link>
         </div>
 
         <div className="footer__col">
           <h4>Services</h4>
-          {services.map((s) => (
+          {services.slice(0, 6).map((s) => (
             <Link key={s.slug} to={`/services/${s.slug}`}>{s.title}</Link>
           ))}
+          <Link to="/services" className="footer__more">All services →</Link>
         </div>
 
         <div className="footer__col footer__col--contact">

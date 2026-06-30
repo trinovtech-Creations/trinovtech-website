@@ -16,6 +16,8 @@ import ServiceDetail from './pages/ServiceDetail.jsx'
 import SolutionDetail from './pages/SolutionDetail.jsx'
 import TechDetail from './pages/TechDetail.jsx'
 import CaseStudyDetail from './pages/CaseStudyDetail.jsx'
+import ProjectDetail from './pages/ProjectDetail.jsx'
+import ProcessDetail from './pages/ProcessDetail.jsx'
 import IndustryDetail from './pages/IndustryDetail.jsx'
 import AboutPillarDetail from './pages/AboutPillarDetail.jsx'
 import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
@@ -67,10 +69,12 @@ export default function App() {
           <Route path="/work" element={<WorkPage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/why-choose-us/:slug" element={<WhyDetail />} />
+          <Route path="/how-we-work/:slug" element={<ProcessDetail />} />
           <Route path="/services/:slug" element={<ServiceDetail />} />
           <Route path="/solutions/:slug" element={<SolutionDetail />} />
           <Route path="/technologies/:slug" element={<TechDetail />} />
           <Route path="/work/:slug" element={<CaseStudyDetail />} />
+          <Route path="/projects/:slug" element={<ProjectDetail />} />
           <Route path="/industries/:slug" element={<IndustryDetail />} />
           <Route path="/about/:slug" element={<AboutPillarDetail />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />

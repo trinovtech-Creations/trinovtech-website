@@ -72,11 +72,12 @@ const truncate = (value, max = 155) => {
 }
 
 const routeFromPath = (pathname) => {
-  const parts = pathname.split('/').filter(Boolean)
+  const normalized = pathname === '/' ? '/' : pathname.replace(/\/+$/, '')
+  const parts = normalized.split('/').filter(Boolean)
   if (parts.length === 0) return STATIC_SEO['/']
 
   const [section, slug] = parts
-  if (parts.length === 1 && STATIC_SEO[pathname]) return STATIC_SEO[pathname]
+  if (parts.length === 1 && STATIC_SEO[normalized]) return STATIC_SEO[normalized]
 
   if (section === 'services' && slug) {
     const service = getService(slug)
@@ -223,11 +224,6 @@ const pageJsonLd = (pathname, seo, canonical) => {
     '@type': 'WebSite',
     name: SITE.name,
     url: SITE.url,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${SITE.url}/?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
   }
 
   const webpage = {
